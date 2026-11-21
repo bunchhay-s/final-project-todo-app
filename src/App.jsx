@@ -30,3 +30,39 @@
 //     </div>
 //   );
 // }
+
+
+// TEST 2 - TaskContext.jsx from ./context/TaskContext.jsx
+
+
+import { TaskProvider, useTaskContext } from "./context/TaskContext";
+
+function TestPanel() {
+  const { tasks, addTask, toggleComplete, deleteTask, resetDemoData } = useTaskContext();
+
+  return (
+    <div style={{ padding: "20px" }}>
+      <button onClick={() => addTask({ title: "Saved Task", list: "School", priority: "high" })}>
+        Add Task
+      </button>
+      <button onClick={() => tasks[0] && toggleComplete(tasks[0].id)}>
+        Toggle First
+      </button>
+      <button onClick={() => tasks[0] && deleteTask(tasks[0].id)}>
+        Delete First
+      </button>
+      <button onClick={resetDemoData}>
+        Reset Demo
+      </button>
+      <pre>{JSON.stringify(tasks, null, 2)}</pre>
+    </div>
+  );
+}
+
+export default function App() {
+  return (
+    <TaskProvider>
+      <TestPanel />
+    </TaskProvider>
+  );
+}
