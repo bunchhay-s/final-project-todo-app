@@ -1,4 +1,4 @@
-// TEST taskActions.js from ./utilities/taskActions.js
+// TEST 1 taskActions.js from ./utilities/taskActions.js ========
 
 // import { useState } from "react";
 // import { createTaskActions } from "./utilities/taskActions";
@@ -32,7 +32,7 @@
 // }
 
 
-// TEST 2 - TaskContext.jsx from ./context/TaskContext.jsx
+// TEST 2 - TaskContext.jsx from ./context/TaskContext.jsx =========
 
 
 // import { TaskProvider, useTaskContext } from "./context/TaskContext";
@@ -67,37 +67,37 @@
 //   );
 // }
 
-// TEST 3 - datehelpers
+// // TEST 3 - datehelpers ==========
 
-import {
-  isToday,
-  isOverdue,
-  isTmr,
-  isUpcoming,
-  getRelativeDate,
-} from "./utilities/dateHelpers";
+// import {
+//   isToday,
+//   isOverdue,
+//   isTmr,
+//   isUpcoming,
+//   getRelativeDate,
+// } from "./utilities/dateHelpers";
 
-const sampleDates = [
-  "2026-11-20", // Yesterday (overdue)
-  "2026-11-21", // Today
-  "2026-11-22", // Tomorrow
-  "2026-11-28", // Upcoming
-  "",           // No due date
-];
+// const sampleDates = [
+//   "2026-11-20", // Yesterday (overdue)
+//   "2026-11-21", // Today
+//   "2026-11-22", // Tomorrow
+//   "2026-11-28", // Upcoming
+//   "",           // No due date
+// ];
 
-export default function App() {
-  return (
-    <div style={{ padding: "20px" }}>
-      {sampleDates.map((d, idx) => (
-        <div key={idx} style={{ marginBottom: "8px" }}>
-          <strong>Date:</strong> {d || "(none)"} |{" "}
-          <strong>Label:</strong> {getRelativeDate(d)} |{" "}
-          <strong>Overdue:</strong> {String(isOverdue(d))} |{" "}
-          <strong>Today:</strong> {String(isToday(d))} |{" "}
-          <strong>Tomorrow:</strong> {String(isTmr(d))} |{" "}
-          <strong>Upcoming:</strong> {String(isUpcoming(d))}
-        </div>
-      ))}
-    </div>
-  );
-}
+// export default function App() {
+//   return (
+//     <div style={{ padding: "20px" }}>
+//       {sampleDates.map((d, idx) => (
+//         <div key={idx} style={{ marginBottom: "8px" }}>
+//           <strong>Date:</strong> {d || "(none)"} |{" "}
+//           <strong>Label:</strong> {getRelativeDate(d)} |{" "}
+//           <strong>Overdue:</strong> {String(isOverdue(d))} |{" "}
+//           <strong>Today:</strong> {String(isToday(d))} |{" "}
+//           <strong>Tomorrow:</strong> {String(isTmr(d))} |{" "}
+//           <strong>Upcoming:</strong> {String(isUpcoming(d))}
+//         </div>
+//       ))}
+//     </div>
+//   );
+// }
