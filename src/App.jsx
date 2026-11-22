@@ -101,3 +101,17 @@
 //     </div>
 //   );
 // }
+
+
+// TEST 4 - Today.jsx ==========
+
+import { TaskProvider } from "./context/TaskContext";
+import Today from "./pages/Today";
+
+export default function App() {
+  return (
+    <TaskProvider>
+      <Today />
+    </TaskProvider>
+  );
+}
