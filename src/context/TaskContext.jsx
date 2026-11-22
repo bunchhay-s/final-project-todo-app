@@ -18,7 +18,7 @@ const DEMO_TASKS = [
     id: "1731142800001",
     title: "Finish slides",
     notes: "Check rubric",
-    dueDate: "2026-11-21",
+    dueDate: "2026-11-22",
     priority: "high",
     list: "School",
     completed: false,
