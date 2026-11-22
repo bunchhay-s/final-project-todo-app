@@ -103,15 +103,28 @@
 // }
 
 
-// TEST 4 - Today.jsx ==========
+// TEST 4&5 - Today.jsx ==========
+
+// import { TaskProvider } from "./context/TaskContext";
+// import Scheduled from "./pages/Scheduled";
+
+// export default function App() {
+//   return (
+//     <TaskProvider>
+//       <Scheduled />
+//     </TaskProvider>
+//   );
+// }
+
+// TEST 6 - OVERVIEW.jsx ==========
 
 import { TaskProvider } from "./context/TaskContext";
-import Scheduled from "./pages/Scheduled";
+import Overview from "./pages/Overview";
 
 export default function App() {
   return (
     <TaskProvider>
-      <Scheduled />
+      <Overview />
     </TaskProvider>
   );
 }
