@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { TaskList, ViewHeader } from './TaskComponents'
+import './FlaggedView.css'
 
 export default function FlaggedView({ tasks, openTask, blankTask, toggleComplete, toggleFlag, deleteTask }) {
   const [segment, setSegment] = useState('all')

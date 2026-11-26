@@ -1,0 +1,220 @@
+:root {
+--color-plum: #26124B;
+--color-violet: #5B2E91;
+--color-amethyst: #8A4EC4;
+--color-lilac: #D499F5;
+--color-aqua: #76EAE6;
+}
+
+.flagged-view {
+display: flex;
+flex-direction: column;
+gap: 1.5rem;
+width: 100%;
+animation: fadeSlideIn 0.22s ease-out;
+}
+
+@keyframes fadeSlideIn {
+from {
+opacity: 0;
+transform: translateY(6px);
+}
+to {
+opacity: 1;
+transform: translateY(0);
+}
+}
+
+/* Responsive Header + Segmented Control Alignment */
+.flagged-header-bar {
+display: flex;
+flex-direction: column;
+gap: 1rem;
+}
+
+@media (min-width: 768px) {
+.flagged-header-bar {
+flex-direction: row;
+align-items: flex-end;
+justify-content: space-between;
+}
+}
+
+/* Apple-Style Segmented Control Pill Bar */
+.segments-wrapper {
+overflow-x: auto;
+padding-bottom: 2px;
+-webkit-overflow-scrolling: touch;
+}
+
+.segments {
+display: inline-flex;
+align-items: center;
+gap: 0.25rem;
+padding: 0.3rem;
+border-radius: 14px;
+background-color: rgba(53, 26, 104, 0.92);
+border: 1px solid rgba(138, 78, 196, 0.5);
+box-shadow: 0 4px 14px rgba(15, 6, 32, 0.25);
+}
+
+.segment-tab {
+display: inline-flex;
+align-items: center;
+gap: 0.45rem;
+padding: 0.45rem 0.85rem;
+border: none;
+border-radius: 10px;
+background: transparent;
+color: var(--color-lilac);
+font-size: 0.8rem;
+font-weight: 700;
+white-space: nowrap;
+cursor: pointer;
+transition: all 0.18s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.segment-tab:hover:not(.selected) {
+color: #ffffff;
+background-color: rgba(91, 46, 145, 0.55);
+}
+
+.segment-tab:focus-visible {
+outline: 2px solid var(--color-aqua);
+outline-offset: 2px;
+}
+
+.segment-tab.selected {
+background-color: var(--color-aqua);
+color: var(--color-plum);
+box-shadow: 0 2px 8px rgba(118, 234, 230, 0.35);
+}
+
+.segment-badge {
+display: inline-flex;
+align-items: center;
+justify-content: center;
+min-width: 1.25rem;
+height: 1.25rem;
+padding: 0 0.35rem;
+border-radius: 9999px;
+font-size: 0.7rem;
+font-weight: 800;
+background-color: rgba(38, 18, 75, 0.65);
+color: var(--color-lilac);
+}
+
+.segment-tab.selected .segment-badge {
+background-color: rgba(38, 18, 75, 0.16);
+color: var(--color-plum);
+}
+
+/* Elevated Task Container Card */
+.flagged-content-card {
+background-color: rgba(53, 26, 104, 0.9);
+border: 1px solid rgba(138, 78, 196, 0.42);
+border-radius: 18px;
+overflow: hidden;
+box-shadow: 0 10px 28px rgba(15, 6, 32, 0.35);
+}
+
+/* Empty State Styling */
+.flagged-empty-state {
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+text-align: center;
+padding: 3.25rem 1.5rem;
+}
+
+.empty-flag-circle {
+width: 3.25rem;
+height: 3.25rem;
+border-radius: 50%;
+background-color: rgba(118, 234, 230, 0.15);
+border: 1px solid rgba(118, 234, 230, 0.45);
+color: var(--color-aqua);
+font-size: 1.35rem;
+display: flex;
+align-items: center;
+justify-content: center;
+margin-bottom: 0.9rem;
+}
+
+.empty-title {
+font-size: 1.05rem;
+font-weight: 700;
+color: #ffffff;
+margin-bottom: 0.35rem;
+}
+
+.empty-description {
+max-width: 360px;
+font-size: 0.85rem;
+line-height: 1.45;
+color: var(--color-lilac);
+margin-bottom: 1.25rem;
+}
+
+.empty-cta-btn {
+padding: 0.55rem 1.15rem;
+border: none;
+border-radius: 9999px;
+background-color: var(--color-aqua);
+color: var(--color-plum);
+font-size: 0.825rem;
+font-weight: 800;
+cursor: pointer;
+box-shadow: 0 4px 14px rgba(118, 234, 230, 0.28);
+transition: transform 0.15s ease, filter 0.15s ease;
+}
+
+.empty-cta-btn:hover {
+filter: brightness(1.06);
+}
+
+.empty-cta-btn:active {
+transform: scale(0.96);
+}
+
+/* Light Mode Overrides */
+.light-mode .segments {
+background-color: #EDE3FA;
+border-color: var(--color-lilac);
+box-shadow: 0 2px 8px rgba(91, 46, 145, 0.08);
+}
+
+.light-mode .segment-tab {
+color: var(--color-violet);
+}
+
+.light-mode .segment-tab:hover:not(.selected) {
+background-color: rgba(212, 153, 245, 0.35);
+color: var(--color-plum);
+}
+
+.light-mode .segment-badge {
+background-color: rgba(138, 78, 196, 0.15);
+color: var(--color-violet);
+}
+
+.light-mode .flagged-content-card {
+background-color: #ffffff;
+border-color: rgba(212, 153, 245, 0.7);
+box-shadow: 0 6px 20px rgba(91, 46, 145, 0.08);
+}
+
+.light-mode .empty-flag-circle {
+background-color: #F3E8FF;
+border-color: var(--color-amethyst);
+color: var(--color-violet);
+}
+
+.light-mode .empty-title {
+color: var(--color-plum);
+}
+
+.light-mode .empty-description {
+color: var(--color-violet);
+}
