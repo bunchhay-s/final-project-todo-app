@@ -1,14 +1,18 @@
 import { useTaskContext } from "../context/TaskContext";
 import { isToday, isOverdue, getRelativeDate } from "../utilities/dateHelpers";
 
-export default function Today() {
+export default function Today({ searchTerm = "" }) {
     const { tasks, toggleComplete, toggleFlag } = useTaskContext();
+    const query = searchTerm.trim().toLowerCase();
+    const visibleTasks = query
+        ? tasks.filter((task) => `${task.title} ${task.notes || ""}`.toLowerCase().includes(query))
+        : tasks;
     
-    const overDueTasks = tasks.filter((task)=>
+    const overDueTasks = visibleTasks.filter((task)=>
          !task.completed && isOverdue(task.dueDate, task.completed)
     )
 
-    const dueTodayTaks = tasks.filter((task) => isToday(task.dueDate));
+    const dueTodayTaks = visibleTasks.filter((task) => isToday(task.dueDate));
 
 
 return (

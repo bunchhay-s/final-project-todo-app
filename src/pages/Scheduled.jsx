@@ -7,31 +7,35 @@ import {
     getRelativeDate,
  } from "../utilities/dateHelpers"
 
-export default function Scheduled() {
+export default function Scheduled({ searchTerm = "" }) {
     const { tasks, toggleComplete, toggleFlag} = useTaskContext();
+    const query = searchTerm.trim().toLowerCase();
+    const visibleTasks = query
+        ? tasks.filter((task) => `${task.title} ${task.notes || ""}`.toLowerCase().includes(query))
+        : tasks;
 
     const sections = [
         {
             title: "Overdue",
-            items: tasks.filter(
+            items: visibleTasks.filter(
                 (task) => !task.completed && isOverdue(task.dueDate, task.completed )
             )
         },
         {
             title: "Today",
-            items: tasks.filter((task) => isToday(task.dueDate))
+            items: visibleTasks.filter((task) => isToday(task.dueDate))
         },
         {
             title: "Tomorrow",
-            items: tasks.filter((task) => isTmr(task.dueDate))
+            items: visibleTasks.filter((task) => isTmr(task.dueDate))
         },
         {
             title: "Upcoming",
-            items: tasks.filter((task) => isUpcoming(task.dueDate))
+            items: visibleTasks.filter((task) => isUpcoming(task.dueDate))
         },
         {
             title: "No Due Date",
-            items: tasks.filter((task) => !task.dueDate),
+            items: visibleTasks.filter((task) => !task.dueDate),
         }
       
     ];

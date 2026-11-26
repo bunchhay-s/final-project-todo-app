@@ -3,17 +3,21 @@
 import { useTaskContext } from "../context/TaskContext";
 import { isToday, isOverdue, getRelativeDate } from "../utilities/dateHelpers";
 
-export default function Overview() {
+export default function Overview({ searchTerm = "" }) {
     const { tasks, lists, toggleComplete } = useTaskContext();
+    const query = searchTerm.trim().toLowerCase();
+    const visibleTasks = query
+        ? tasks.filter((task) => `${task.title} ${task.notes || ""}`.toLowerCase().includes(query))
+        : tasks;
 
-    const todayCount = tasks.filter((task) => !task.completed && isToday(task.dueDate)).length;
-    const overdueCount = tasks.filter(
+    const todayCount = visibleTasks.filter((task) => !task.completed && isToday(task.dueDate)).length;
+    const overdueCount = visibleTasks.filter(
         (task)=> !task.completed && isOverdue(task.dueDate, task.completed)).length
-    const scheduleCount = tasks.filter((task) => !task.completed && task.dueDate).length
-    const flaggedCount = tasks.filter((task) => !task.completed && task.flagged).length
-    const allActiveCount = tasks.filter((task) => !task.completed).length
+    const scheduleCount = visibleTasks.filter((task) => !task.completed && task.dueDate).length
+    const flaggedCount = visibleTasks.filter((task) => !task.completed && task.flagged).length
+    const allActiveCount = visibleTasks.filter((task) => !task.completed).length
 
-    const focusTask = tasks.filter((task) => !task.completed && (isToday(task.dueDate) || isOverdue(task.dueDate, task.completed)))
+    const focusTask = visibleTasks.filter((task) => !task.completed && (isToday(task.dueDate) || isOverdue(task.dueDate, task.completed)))
 
     return (
         <div style={{ padding:"20px" }}>
@@ -31,7 +35,7 @@ export default function Overview() {
             <h2>My Lists</h2>
             <ul>
                 {lists.map((listName) => {
-                    const count = tasks.filter(
+                    const count = visibleTasks.filter(
                         (task) => task.list === listName && !task.completed).length;
                         return (
                             <li key={listName}>
