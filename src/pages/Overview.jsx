@@ -2,6 +2,7 @@
 
 import { useTaskContext } from "../context/TaskContext";
 import { isToday, isOverdue, getRelativeDate } from "../utilities/dateHelpers";
+import './Overview.css'
 
 export default function Overview({ searchTerm = "" }) {
     const { tasks, lists, toggleComplete } = useTaskContext();

@@ -1,0 +1,479 @@
+/* ============================================================================
+Member 3 — Overview UI/UX & Custom 5-Color Palette Stylesheet
+Palette: #26124B | #5B2E91 | #8A4EC4 | #D499F5 | #76EAE6
+============================================================================ */
+
+:root {
+--color-plum: #26124B;
+--color-violet: #5B2E91;
+--color-amethyst: #8A4EC4;
+--color-lilac: #D499F5;
+--color-aqua: #76EAE6;
+}
+
+.overview-view {
+display: flex;
+flex-direction: column;
+gap: 1.75rem;
+width: 100%;
+animation: overviewFadeIn 0.22s ease-out;
+}
+
+@keyframes overviewFadeIn {
+from {
+opacity: 0;
+transform: translateY(6px);
+}
+to {
+opacity: 1;
+transform: translateY(0);
+}
+}
+
+/* Header */
+.overview-header .eyebrow {
+font-size: 0.75rem;
+font-weight: 800;
+text-transform: uppercase;
+letter-spacing: 0.08em;
+color: var(--color-aqua);
+margin: 0 0 0.2rem;
+}
+
+.overview-heading {
+font-size: 2rem;
+font-weight: 800;
+letter-spacing: -0.02em;
+color: #ffffff;
+margin: 0;
+}
+
+.overview-subtitle {
+font-size: 0.88rem;
+color: var(--color-lilac);
+margin: 0.25rem 0 0;
+}
+
+/* Smart Summary Grid */
+.overview-smart-grid {
+display: grid;
+grid-template-columns: repeat(2, 1fr);
+gap: 0.85rem;
+}
+
+@media (min-width: 768px) {
+.overview-smart-grid {
+grid-template-columns: repeat(3, 1fr);
+}
+}
+
+@media (min-width: 1024px) {
+.overview-smart-grid {
+grid-template-columns: repeat(5, 1fr);
+}
+}
+
+.overview-smart-card {
+display: flex;
+flex-direction: column;
+justify-content: space-between;
+gap: 0.85rem;
+padding: 1rem 1.05rem;
+border-radius: 18px;
+text-decoration: none;
+background-color: rgba(53, 26, 104, 0.9);
+border: 1px solid rgba(138, 78, 196, 0.45);
+box-shadow: 0 8px 22px rgba(15, 6, 32, 0.3);
+transition: transform 0.18s ease, border-color 0.18s ease, background-color 0.18s ease;
+}
+
+.overview-smart-card:hover {
+transform: translateY(-2px);
+background-color: rgba(91, 46, 145, 0.72);
+border-color: var(--color-aqua);
+}
+
+.overview-smart-card.has-alert {
+border-color: rgba(118, 234, 230, 0.65);
+}
+
+.smart-card-top {
+display: flex;
+align-items: center;
+justify-content: space-between;
+}
+
+.smart-card-badge {
+width: 38px;
+height: 38px;
+border-radius: 50%;
+display: flex;
+align-items: center;
+justify-content: center;
+font-size: 1.05rem;
+color: #ffffff;
+border: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+.smart-card-badge.light-badge {
+color: var(--color-plum);
+}
+
+.smart-card-count {
+font-size: 1.65rem;
+font-weight: 800;
+color: #ffffff;
+line-height: 1;
+}
+
+.smart-card-bottom {
+display: flex;
+align-items: center;
+justify-content: space-between;
+}
+
+.smart-card-label {
+font-size: 0.9rem;
+font-weight: 700;
+color: var(--color-lilac);
+}
+
+.smart-card-chevron {
+font-size: 1.15rem;
+font-weight: 700;
+color: var(--color-aqua);
+opacity: 0;
+transition: opacity 0.15s ease, transform 0.15s ease;
+}
+
+.overview-smart-card:hover .smart-card-chevron {
+opacity: 1;
+transform: translateX(2px);
+}
+
+/* Section Headers */
+.overview-section {
+display: flex;
+flex-direction: column;
+gap: 0.7rem;
+}
+
+.section-title-row {
+display: flex;
+align-items: center;
+justify-content: space-between;
+}
+
+.overview-section-title {
+font-size: 1.1rem;
+font-weight: 800;
+color: #ffffff;
+margin: 0;
+}
+
+.section-meta-pill {
+font-size: 0.72rem;
+font-weight: 700;
+padding: 0.2rem 0.65rem;
+border-radius: 9999px;
+background-color: rgba(91, 46, 145, 0.65);
+color: var(--color-lilac);
+}
+
+.see-all-link {
+font-size: 0.84rem;
+font-weight: 700;
+color: var(--color-aqua);
+text-decoration: none;
+}
+
+.see-all-link:hover {
+text-decoration: underline;
+}
+
+/* Elevated Grouped Panels */
+.overview-card-panel {
+background-color: rgba(53, 26, 104, 0.9);
+border: 1px solid rgba(138, 78, 196, 0.42);
+border-radius: 18px;
+overflow: hidden;
+box-shadow: 0 10px 28px rgba(15, 6, 32, 0.35);
+}
+
+/* My Lists Rows */
+.overview-list-row {
+display: flex;
+align-items: center;
+justify-content: space-between;
+padding: 0.85rem 1.1rem;
+text-decoration: none;
+color: #ffffff;
+border-bottom: 1px solid rgba(91, 46, 145, 0.55);
+transition: background-color 0.15s ease;
+}
+
+.overview-list-row:last-child {
+border-bottom: none;
+}
+
+.overview-list-row:hover {
+background-color: rgba(91, 46, 145, 0.5);
+}
+
+.list-row-left {
+display: flex;
+align-items: center;
+gap: 0.8rem;
+}
+
+.overview-list-badge {
+width: 32px;
+height: 32px;
+border-radius: 50%;
+display: flex;
+align-items: center;
+justify-content: center;
+font-size: 0.95rem;
+border: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+.overview-list-name {
+font-size: 0.95rem;
+font-weight: 600;
+}
+
+.list-row-right {
+display: flex;
+align-items: center;
+gap: 0.5rem;
+color: var(--color-lilac);
+}
+
+.overview-list-count {
+font-size: 0.92rem;
+font-weight: 800;
+}
+
+.list-row-chevron {
+font-size: 1.15rem;
+line-height: 1;
+}
+
+/* Today & Overdue Focus Rows */
+.overview-focus-list {
+list-style: none;
+margin: 0;
+padding: 0;
+}
+
+.overview-task-row {
+display: flex;
+align-items: flex-start;
+gap: 0.85rem;
+padding: 0.95rem 1.1rem;
+border-bottom: 1px solid rgba(91, 46, 145, 0.55);
+transition: background-color 0.15s ease;
+}
+
+.overview-task-row:last-child {
+border-bottom: none;
+}
+
+.overview-task-row:hover {
+background-color: rgba(91, 46, 145, 0.35);
+}
+
+.apple-circle-check {
+width: 24px;
+height: 24px;
+border-radius: 50%;
+border: 2px solid var(--check-accent, var(--color-aqua));
+background: transparent;
+color: var(--color-plum);
+font-size: 0.8rem;
+font-weight: 900;
+display: flex;
+align-items: center;
+justify-content: center;
+flex-shrink: 0;
+margin-top: 2px;
+cursor: pointer;
+transition: transform 0.15s ease, background-color 0.15s ease;
+}
+
+.apple-circle-check:active {
+transform: scale(0.9);
+}
+
+.apple-circle-check.checked {
+background-color: var(--color-aqua);
+border-color: var(--color-aqua);
+}
+
+.overview-task-body {
+flex: 1;
+min-width: 0;
+}
+
+.overview-task-title-line {
+display: flex;
+align-items: center;
+gap: 0.45rem;
+flex-wrap: wrap;
+}
+
+.priority-pill {
+font-size: 0.7rem;
+font-weight: 800;
+color: var(--color-aqua);
+background-color: var(--color-plum);
+padding: 0.1rem 0.45rem;
+border-radius: 6px;
+}
+
+.overview-task-title {
+font-size: 0.95rem;
+font-weight: 600;
+color: #ffffff;
+}
+
+.overview-task-notes {
+font-size: 0.82rem;
+color: rgba(212, 153, 245, 0.82);
+margin: 0.25rem 0 0;
+}
+
+.overview-task-meta {
+display: flex;
+align-items: center;
+gap: 0.75rem;
+flex-wrap: wrap;
+margin-top: 0.45rem;
+font-size: 0.75rem;
+font-weight: 600;
+}
+
+.due-chip {
+color: var(--color-aqua);
+}
+
+.due-chip.overdue {
+background-color: var(--color-violet);
+color: var(--color-aqua);
+padding: 0.15rem 0.55rem;
+border-radius: 9999px;
+}
+
+.category-chip {
+display: inline-flex;
+align-items: center;
+gap: 0.35rem;
+color: var(--color-lilac);
+}
+
+.category-dot {
+width: 8px;
+height: 8px;
+border-radius: 50%;
+}
+
+.overview-flag-btn {
+padding: 0.35rem 0.5rem;
+border-radius: 50%;
+border: none;
+background: transparent;
+color: rgba(212, 153, 245, 0.65);
+font-size: 1rem;
+cursor: pointer;
+}
+
+.overview-flag-btn.flagged {
+color: var(--color-aqua);
+}
+
+/* Empty Focus State */
+.overview-empty-focus {
+display: flex;
+flex-direction: column;
+align-items: center;
+text-align: center;
+padding: 2.5rem 1.25rem;
+}
+
+.empty-check-circle {
+width: 44px;
+height: 44px;
+border-radius: 50%;
+background-color: rgba(118, 234, 230, 0.18);
+border: 1px solid var(--color-aqua);
+color: var(--color-aqua);
+font-size: 1.25rem;
+font-weight: 800;
+display: flex;
+align-items: center;
+justify-content: center;
+margin-bottom: 0.7rem;
+}
+
+.empty-focus-title {
+font-size: 1rem;
+font-weight: 700;
+color: #ffffff;
+margin: 0 0 0.25rem;
+}
+
+.empty-focus-sub {
+font-size: 0.84rem;
+color: var(--color-lilac);
+margin: 0;
+}
+
+/* ============================================================================
+Light Mode Support (.light-mode on parent wrapper)
+============================================================================ */
+.light-mode .overview-header .eyebrow {
+color: var(--color-amethyst);
+}
+
+.light-mode .overview-heading,
+.light-mode .overview-section-title,
+.light-mode .smart-card-count,
+.light-mode .overview-list-name,
+.light-mode .overview-task-title,
+.light-mode .empty-focus-title {
+color: var(--color-plum);
+}
+
+.light-mode .overview-subtitle,
+.light-mode .smart-card-label,
+.light-mode .overview-task-notes,
+.light-mode .empty-focus-sub {
+color: var(--color-violet);
+}
+
+.light-mode .overview-smart-card,
+.light-mode .overview-card-panel {
+background-color: #ffffff;
+border-color: rgba(212, 153, 245, 0.7);
+box-shadow: 0 6px 20px rgba(91, 46, 145, 0.08);
+}
+
+.light-mode .overview-smart-card:hover {
+background-color: #F8F4FD;
+border-color: var(--color-amethyst);
+}
+
+.light-mode .overview-list-row,
+.light-mode .overview-task-row {
+border-bottom-color: rgba(212, 153, 245, 0.45);
+}
+
+.light-mode .overview-list-row:hover,
+.light-mode .overview-task-row:hover {
+background-color: #F8F4FD;
+}
+
+.light-mode .see-all-link,
+.light-mode .due-chip {
+color: var(--color-violet);
+}
