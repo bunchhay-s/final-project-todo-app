@@ -1,0 +1,357 @@
+/* ============================================================================
+Member 3 — TaskComponents (ViewHeader & TaskList) Stylesheet
+Palette: #26124B | #5B2E91 | #8A4EC4 | #D499F5 | #76EAE6
+============================================================================ */
+
+.tc-view-header,
+.tc-task-list,
+.tc-empty-state {
+--color-plum: #26124B;
+--color-violet: #5B2E91;
+--color-amethyst: #8A4EC4;
+--color-lilac: #D499F5;
+--color-aqua: #76EAE6;
+}
+
+.tc-view-header *,
+.tc-task-list *,
+.tc-empty-state * {
+box-sizing: border-box;
+}
+
+/* ============================================================================
+ViewHeader Styling
+============================================================================ */
+.tc-view-header {
+display: flex;
+flex-direction: column;
+gap: 0.9rem;
+width: 100%;
+}
+
+@media (min-width: 640px) {
+.tc-view-header {
+flex-direction: row;
+align-items: flex-end;
+justify-content: space-between;
+}
+}
+
+.tc-header-text .eyebrow {
+margin: 0 0 0.2rem;
+font-size: 0.72rem;
+font-weight: 800;
+text-transform: uppercase;
+letter-spacing: 0.08em;
+color: var(--color-aqua);
+}
+
+.tc-header-text h1 {
+margin: 0;
+font-size: 2rem;
+font-weight: 800;
+letter-spacing: -0.02em;
+color: #ffffff;
+}
+
+.tc-header-subtitle {
+margin: 0.25rem 0 0;
+font-size: 0.88rem;
+color: var(--color-lilac);
+}
+
+.tc-add-btn {
+display: inline-flex;
+align-items: center;
+gap: 0.4rem;
+padding: 0.58rem 1.15rem;
+border: none;
+border-radius: 9999px;
+background-color: var(--color-aqua);
+color: var(--color-plum);
+font-size: 0.84rem;
+font-weight: 800;
+cursor: pointer;
+align-self: flex-start;
+box-shadow: 0 4px 14px rgba(118, 234, 230, 0.28);
+transition: transform 0.14s ease, filter 0.14s ease;
+}
+
+@media (min-width: 640px) {
+.tc-add-btn {
+align-self: auto;
+}
+}
+
+.tc-add-btn:hover {
+filter: brightness(1.06);
+}
+
+.tc-add-btn:active {
+transform: scale(0.96);
+}
+
+/* ============================================================================
+TaskList & Task Rows
+============================================================================ */
+.tc-task-list {
+display: flex;
+flex-direction: column;
+width: 100%;
+background-color: rgba(53, 26, 104, 0.92);
+border: 1px solid rgba(138, 78, 196, 0.45);
+border-radius: 18px;
+overflow: hidden;
+box-shadow: 0 10px 26px rgba(15, 6, 32, 0.35);
+}
+
+.tc-task-row {
+display: flex;
+align-items: flex-start;
+gap: 0.85rem;
+padding: 0.95rem 1.15rem;
+border-bottom: 1px solid rgba(138, 78, 196, 0.35);
+transition: background-color 0.16s ease;
+}
+
+.tc-task-row:last-child {
+border-bottom: none;
+}
+
+.tc-task-row:hover {
+background-color: rgba(91, 46, 145, 0.45);
+}
+
+/* Circular Checkbox */
+.tc-task-check {
+width: 24px;
+height: 24px;
+margin-top: 2px;
+border-radius: 50%;
+border: 2px solid var(--color-amethyst);
+background: transparent;
+color: var(--color-plum);
+font-size: 0.8rem;
+font-weight: 900;
+display: inline-flex;
+align-items: center;
+justify-content: center;
+flex-shrink: 0;
+cursor: pointer;
+transition: transform 0.14s ease, background-color 0.15s ease, border-color 0.15s ease;
+}
+
+.tc-task-check:hover {
+transform: scale(1.08);
+border-color: var(--color-aqua);
+background-color: rgba(118, 234, 230, 0.16);
+}
+
+.tc-task-check.checked,
+.tc-task-row.completed .tc-task-check {
+background-color: var(--color-aqua);
+border-color: var(--color-aqua);
+}
+
+/* Main Task Body Button */
+.tc-task-main {
+flex: 1;
+min-width: 0;
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+gap: 0.25rem;
+padding: 0;
+border: none;
+background: transparent;
+text-align: left;
+cursor: pointer;
+}
+
+.tc-title-row {
+display: flex;
+align-items: center;
+gap: 0.45rem;
+flex-wrap: wrap;
+}
+
+.tc-priority {
+font-size: 0.72rem;
+font-weight: 800;
+padding: 0.1rem 0.45rem;
+border-radius: 6px;
+background-color: var(--color-plum);
+color: var(--color-aqua);
+}
+
+.tc-priority.low {
+color: var(--color-lilac);
+}
+
+.tc-task-title {
+font-size: 0.96rem;
+font-weight: 600;
+color: #ffffff;
+line-height: 1.35;
+}
+
+.tc-task-row.completed .tc-task-title {
+text-decoration: line-through;
+opacity: 0.55;
+}
+
+.tc-task-notes {
+font-size: 0.82rem;
+color: rgba(212, 153, 245, 0.82);
+line-height: 1.4;
+}
+
+.tc-task-meta {
+display: flex;
+align-items: center;
+gap: 0.75rem;
+margin-top: 0.25rem;
+font-size: 0.76rem;
+font-weight: 600;
+flex-wrap: wrap;
+}
+
+.tc-meta-date {
+color: var(--color-aqua);
+font-weight: 700;
+}
+
+.tc-meta-list {
+display: inline-flex;
+align-items: center;
+gap: 0.35rem;
+font-style: normal;
+color: var(--color-lilac);
+}
+
+.tc-list-dot {
+width: 7px;
+height: 7px;
+border-radius: 50%;
+background-color: var(--color-amethyst);
+}
+
+/* Row Action Buttons */
+.tc-row-actions {
+display: flex;
+align-items: center;
+gap: 0.25rem;
+flex-shrink: 0;
+}
+
+.tc-action-btn {
+width: 32px;
+height: 32px;
+border-radius: 50%;
+border: none;
+background: transparent;
+color: rgba(212, 153, 245, 0.72);
+font-size: 0.98rem;
+display: inline-flex;
+align-items: center;
+justify-content: center;
+cursor: pointer;
+transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.tc-action-btn:hover {
+background-color: rgba(138, 78, 196, 0.3);
+color: var(--color-aqua);
+}
+
+.tc-action-btn.flagged {
+color: var(--color-aqua);
+background-color: rgba(118, 234, 230, 0.16);
+}
+
+.tc-action-btn.delete:hover {
+background-color: rgba(212, 153, 245, 0.2);
+color: #ffffff;
+}
+
+/* ============================================================================
+Empty State Card
+============================================================================ */
+.tc-empty-state {
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+text-align: center;
+padding: 3rem 1.5rem;
+background-color: rgba(53, 26, 104, 0.9);
+border: 1px solid rgba(138, 78, 196, 0.42);
+border-radius: 18px;
+}
+
+.tc-empty-circle {
+width: 3rem;
+height: 3rem;
+border-radius: 50%;
+background-color: rgba(118, 234, 230, 0.16);
+border: 1px solid rgba(118, 234, 230, 0.45);
+color: var(--color-aqua);
+font-size: 1.25rem;
+font-weight: 800;
+display: flex;
+align-items: center;
+justify-content: center;
+margin-bottom: 0.8rem;
+}
+
+.tc-empty-state h2 {
+margin: 0 0 0.3rem;
+font-size: 1.05rem;
+font-weight: 700;
+color: #ffffff;
+}
+
+.tc-empty-state p {
+margin: 0;
+font-size: 0.85rem;
+color: var(--color-lilac);
+}
+
+/* ============================================================================
+Light Mode Theme Overrides (.light-mode on parent wrapper)
+============================================================================ */
+.light-mode .tc-header-text .eyebrow {
+color: var(--color-amethyst);
+}
+
+.light-mode .tc-header-text h1,
+.light-mode .tc-task-title,
+.light-mode .tc-empty-state h2 {
+color: var(--color-plum);
+}
+
+.light-mode .tc-header-subtitle,
+.light-mode .tc-task-notes,
+.light-mode .tc-meta-list,
+.light-mode .tc-empty-state p {
+color: var(--color-violet);
+}
+
+.light-mode .tc-task-list,
+.light-mode .tc-empty-state {
+background-color: #ffffff;
+border-color: rgba(212, 153, 245, 0.7);
+box-shadow: 0 6px 20px rgba(91, 46, 145, 0.08);
+}
+
+.light-mode .tc-task-row {
+border-bottom-color: rgba(212, 153, 245, 0.45);
+}
+
+.light-mode .tc-task-row:hover {
+background-color: #F8F4FD;
+}
+
+.light-mode .tc-meta-date {
+color: var(--color-violet);
+}
