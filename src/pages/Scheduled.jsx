@@ -8,8 +8,8 @@ import {
 } from '../utilities/dateHelpers'
 import './Scheduled.css'
 
-export default function Scheduled({ searchTerm = '', openTask }) {
-  const { tasks = [], listStyles = {}, toggleComplete, toggleFlag } = useTaskContext()
+export default function Scheduled({ searchTerm = '', openTask, listStyles = {} }) {
+  const { tasks = [], toggleComplete, toggleFlag, deleteTask } = useTaskContext()
 
   const query = searchTerm.trim().toLowerCase()
   const visibleTasks = query
@@ -197,6 +197,18 @@ export default function Scheduled({ searchTerm = '', openTask }) {
                               onClick={() => openTask(task)}
                             >
                               ✎
+                            </button>
+                          )}
+
+                          {typeof deleteTask === 'function' && (
+                            <button
+                              type="button"
+                              aria-label={`Delete "${task.title}"`}
+                              title="Delete Reminder"
+                              className="scheduled-edit-btn"
+                              onClick={() => deleteTask(task.id)}
+                            >
+                              ⌫
                             </button>
                           )}
                         </div>

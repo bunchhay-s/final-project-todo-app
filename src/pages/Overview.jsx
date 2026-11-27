@@ -3,9 +3,9 @@ import { useTaskContext } from '../context/TaskContext'
 import { isToday, isOverdue, getRelativeDate } from '../utilities/dateHelpers'
 import './Overview.css'
 
-export default function Overview({ searchTerm = '', openTask }) {
-  const { tasks = [], lists = [], listStyles = {}, toggleComplete, toggleFlag } = useTaskContext()
-
+export default function Overview({ searchTerm = '', openTask, listStyles = {} }) {
+  const { tasks = [], lists = [], toggleComplete, toggleFlag, deleteTask } = useTaskContext()
+ 
   const query = searchTerm.trim().toLowerCase()
   const visibleTasks = query
     ? tasks.filter((task) =>
@@ -184,7 +184,7 @@ export default function Overview({ searchTerm = '', openTask }) {
           <h2 id="focus-heading" className="overview-section-title">
             Today &amp; Overdue Focus
           </h2>
-          <Link to="/today" className="see-all-link">
+          <Link to="/today" className="overview-link-action">
             Open Today →
           </Link>
         </div>
@@ -251,6 +251,8 @@ export default function Overview({ searchTerm = '', openTask }) {
                       </div>
                     </div>
 
+
+
                     <div className="overview-row-actions">
                       {typeof toggleFlag === 'function' && (
                         <button
@@ -273,6 +275,18 @@ export default function Overview({ searchTerm = '', openTask }) {
                           onClick={() => openTask(task)}
                         >
                           ✎
+                        </button>
+                      )}
+
+                      {typeof deleteTask === 'function' && (
+                        <button
+                          type="button"
+                          aria-label={`Delete "${task.title}"`}
+                          title="Delete Reminder"
+                          className="overview-edit-btn"
+                          onClick={() => deleteTask(task.id)}
+                        >
+                          ⌫
                         </button>
                       )}
                     </div>

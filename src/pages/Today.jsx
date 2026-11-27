@@ -2,8 +2,8 @@ import { useTaskContext } from '../context/TaskContext'
 import { isToday, isOverdue, getRelativeDate } from '../utilities/dateHelpers'
 import './Today.css'
 
-export default function Today({ searchTerm = '', openTask }) {
-  const { tasks = [], listStyles = {}, toggleComplete, toggleFlag } = useTaskContext()
+export default function Today({ searchTerm = '', openTask, listStyles = {} }) {
+  const { tasks = [], toggleComplete, toggleFlag, deleteTask } = useTaskContext()
 
   const query = searchTerm.trim().toLowerCase()
   const visibleTasks = query
@@ -107,6 +107,18 @@ export default function Today({ searchTerm = '', openTask }) {
               onClick={() => openTask(task)}
             >
               ✎
+            </button>
+          )}
+
+          {typeof deleteTask === 'function' && (
+            <button
+              type="button"
+              aria-label={`Delete "${task.title}"`}
+              title="Delete Reminder"
+              className="today-edit-btn"
+              onClick={() => deleteTask(task.id)}
+            >
+              ⌫
             </button>
           )}
         </div>
