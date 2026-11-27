@@ -63,17 +63,18 @@ letter-spacing: 0.08em;
 color: var(--color-lilac);
 }
 
-/* Grouped iOS Settings Card */
-.settings-card {
-background-color: rgba(53, 26, 104, 0.92);
-border: 1px solid rgba(138, 78, 196, 0.45);
+/* Grouped iOS Settings Card (Overrides App.css white .settings-card in Dark Mode) */
+.settings-view .settings-card {
+margin-bottom: 0;
+background-color: rgba(53, 26, 104, 0.94) !important;
+border: 1px solid rgba(138, 78, 196, 0.48) !important;
 border-radius: 18px;
 overflow: hidden;
 box-shadow: 0 10px 26px rgba(15, 6, 32, 0.35);
 }
 
 /* Palette Showcase Banner */
-.palette-showcase-card {
+.settings-view .palette-showcase-card {
 padding: 1.15rem 1.25rem;
 display: flex;
 flex-direction: column;
@@ -81,7 +82,7 @@ gap: 1rem;
 }
 
 @media (min-width: 680px) {
-.palette-showcase-card {
+.settings-view .palette-showcase-card {
 flex-direction: row;
 align-items: center;
 justify-content: space-between;
@@ -148,18 +149,18 @@ display: flex;
 flex-direction: column;
 }
 
-.settings-row {
+.settings-view .settings-row {
 display: flex;
 align-items: center;
 justify-content: space-between;
 gap: 1rem;
 padding: 1rem 1.25rem;
-border-bottom: 1px solid rgba(138, 78, 196, 0.35);
+border-bottom: 1px solid rgba(138, 78, 196, 0.35) !important;
 flex-wrap: wrap;
 }
 
-.settings-row:last-child {
-border-bottom: none;
+.settings-view .settings-row:last-child {
+border-bottom: none !important;
 }
 
 .row-title {
@@ -172,7 +173,7 @@ color: #ffffff;
 .row-subtitle {
 margin: 0.2rem 0 0;
 font-size: 0.8rem;
-color: rgba(212, 153, 245, 0.82);
+color: rgba(212, 153, 245, 0.85);
 }
 
 /* Text Input */
@@ -279,9 +280,9 @@ Light Mode Theme Overrides (.light-mode on parent wrapper)
 color: var(--color-violet);
 }
 
-.light-mode .settings-card {
-background-color: #ffffff;
-border-color: rgba(212, 153, 245, 0.7);
+.light-mode .settings-view .settings-card {
+background-color: #ffffff !important;
+border-color: rgba(212, 153, 245, 0.7) !important;
 box-shadow: 0 6px 20px rgba(91, 46, 145, 0.08);
 }
 
@@ -296,8 +297,8 @@ color: var(--color-plum);
 color: var(--color-violet);
 }
 
-.light-mode .settings-row {
-border-bottom-color: rgba(212, 153, 245, 0.45);
+.light-mode .settings-view .settings-row {
+border-bottom-color: rgba(212, 153, 245, 0.45) !important;
 }
 
 .light-mode .settings-text-input {
