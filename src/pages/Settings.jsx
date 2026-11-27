@@ -125,14 +125,6 @@ export default function Settings() {
   const completedCount = tasks.filter((t) => t.completed).length
   const activeCount = tasks.length - completedCount
 
-  const paletteSwatches = [
-    { hex: '#26124B', name: 'Midnight Plum' },
-    { hex: '#5B2E91', name: 'Royal Violet' },
-    { hex: '#8A4EC4', name: 'Amethyst' },
-    { hex: '#D499F5', name: 'Lavender Lilac' },
-    { hex: '#76EAE6', name: 'Aqua Mint' }
-  ]
-
   return (
     <section className="view settings-view" aria-labelledby="settings-heading">
       <ViewHeader
@@ -147,31 +139,7 @@ export default function Settings() {
         </div>
       )}
 
-      {/* 1. Custom 5-Color Palette Showcase */}
-      <div className="settings-card palette-showcase-card">
-        <div className="palette-info">
-          <span className="settings-badge">Custom Theme Tokens</span>
-          <h2 className="settings-card-title">Plum, Violet &amp; Aqua Palette</h2>
-          <p className="settings-card-desc">
-            Active across all 6 application views, smart cards, and modals.
-          </p>
-        </div>
-
-        <div className="palette-swatches-row">
-          {paletteSwatches.map((swatch) => (
-            <div key={swatch.hex} className="palette-swatch-item">
-              <span
-                className="palette-dot"
-                style={{ backgroundColor: swatch.hex }}
-                title={`${swatch.name} (${swatch.hex})`}
-              />
-              <span className="palette-hex">{swatch.hex}</span>
-            </div>
-          ))}
-        </div>
-      </div>
-
-      {/* 2. Appearance & Profile Settings */}
+      {/* 1. Appearance & Profile Settings */}
       <div className="settings-group">
         <h3 className="settings-group-label">Appearance &amp; Profile</h3>
         <div className="settings-card settings-rows">
@@ -209,7 +177,7 @@ export default function Settings() {
         </div>
       </div>
 
-      {/* 3. Browser Persistence & Data Management */}
+      {/* 2. Browser Persistence & Data Management */}
       <div className="settings-group">
         <h3 className="settings-group-label">Browser Persistence (localStorage)</h3>
         <div className="settings-card settings-rows">
