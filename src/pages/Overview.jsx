@@ -135,11 +135,11 @@ export default function Overview({ searchTerm = '', openTask }) {
 
       {/* My Lists Grouped Card */}
       <section className="overview-section" aria-labelledby="my-lists-heading">
-        <div className="section-title-row">
+        <div className="overview-section-header">
           <h2 id="my-lists-heading" className="overview-section-title">
             My Lists
           </h2>
-          <span className="section-meta-pill">{lists.length} lists</span>
+          <span className="overview-pill-count">{lists.length} lists</span>
         </div>
 
         <div className="overview-card-panel">
@@ -155,7 +155,7 @@ export default function Overview({ searchTerm = '', openTask }) {
                 to={`/list/${encodeURIComponent(listName)}`}
                 className="overview-list-row"
               >
-                <div className="list-row-left">
+                <div className="overview-list-left">
                   <span
                     className="overview-list-badge"
                     style={{ backgroundColor: styleMeta.color || '#5B2E91' }}
@@ -166,9 +166,9 @@ export default function Overview({ searchTerm = '', openTask }) {
                   <span className="overview-list-name">{listName}</span>
                 </div>
 
-                <div className="list-row-right">
+                <div className="overview-list-right">
                   <span className="overview-list-count">{count}</span>
-                  <span className="list-row-chevron" aria-hidden="true">
+                  <span className="overview-chevron" aria-hidden="true">
                     ›
                   </span>
                 </div>
@@ -180,7 +180,7 @@ export default function Overview({ searchTerm = '', openTask }) {
 
       {/* Today & Overdue Focus Card */}
       <section className="overview-section" aria-labelledby="focus-heading">
-        <div className="section-title-row">
+        <div className="overview-section-header">
           <h2 id="focus-heading" className="overview-section-title">
             Today &amp; Overdue Focus
           </h2>
@@ -201,7 +201,7 @@ export default function Overview({ searchTerm = '', openTask }) {
               </p>
             </div>
           ) : (
-            <ul className="overview-focus-list">
+            <ul className="overview-task-list">
               {focusTasks.map((task) => {
                 const overdue = isOverdue(task.dueDate, task.completed)
                 const listMeta = listStyles[task.list] || { color: '#8A4EC4' }
@@ -213,7 +213,7 @@ export default function Overview({ searchTerm = '', openTask }) {
                       role="checkbox"
                       aria-checked={task.completed}
                       aria-label={`Mark "${task.title}" complete`}
-                      className={`apple-circle-check ${task.completed ? 'checked' : ''}`}
+                      className={`overview-circle-check ${task.completed ? 'checked' : ''}`}
                       style={{ '--check-accent': listMeta.color || '#76EAE6' }}
                       onClick={() => toggleComplete(task.id)}
                     >

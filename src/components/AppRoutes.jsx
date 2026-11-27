@@ -18,11 +18,11 @@ export default function AppRoutes({
   deleteTask,
   removeList,
 }) {
-  return (
+return (
     <Routes>
-      <Route path="/" element={<Overview searchTerm={search} />} />
-      <Route path="/today" element={<Today searchTerm={search} />} />
-      <Route path="/scheduled" element={<Scheduled searchTerm={search} />} />
+      <Route path="/" element={<Overview searchTerm={search} openTask={openTask} deleteTask={deleteTask} listStyles={listStyles} />} />
+      <Route path="/today" element={<Today searchTerm={search} openTask={openTask} deleteTask={deleteTask} blankTask={blankTask} listStyles={listStyles} />} />
+      <Route path="/scheduled" element={<Scheduled searchTerm={search} openTask={openTask} deleteTask={deleteTask} blankTask={blankTask} listStyles={listStyles} />} />
       <Route path="/flagged" element={<FlaggedView tasks={tasks} openTask={openTask} blankTask={blankTask} toggleComplete={toggleComplete} toggleFlag={toggleFlag} deleteTask={deleteTask} />} />
       <Route path="/list/:listName" element={<ListView tasks={tasks} lists={lists} listStyles={listStyles} openTask={openTask} blankTask={blankTask} toggleComplete={toggleComplete} toggleFlag={toggleFlag} deleteTask={deleteTask} removeList={removeList} />} />
       <Route path="/settings" element={<Settings />} />
