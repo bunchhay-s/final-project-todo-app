@@ -1,0 +1,508 @@
+/* ============================================================================
+Member 3 — Master App Layout & Global Reset Stylesheet
+Palette: #26124B | #5B2E91 | #8A4EC4 | #D499F5 | #76EAE6
+============================================================================ */
+
+:root {
+--color-plum: #26124B;
+--color-violet: #5B2E91;
+--color-amethyst: #8A4EC4;
+--color-lilac: #D499F5;
+--color-aqua: #76EAE6;
+}
+
+/* Global Reset so Vite/CRA default styles never break layout */
+html,
+body,
+#root {
+margin: 0;
+padding: 0;
+width: 100%;
+min-height: 100vh;
+background-color: var(--color-plum);
+color: #ffffff;
+font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", Roboto, sans-serif;
+-webkit-font-smoothing: antialiased;
+}
+
+body.light-mode,
+body.light-mode #root {
+background-color: #F8F4FD;
+color: var(--color-plum);
+}
+
+/* Master Two-Column Flex Shell */
+.app-shell {
+display: flex;
+width: 100%;
+min-height: 100vh;
+background-color: var(--color-plum);
+color: #ffffff;
+transition: background-color 0.22s ease, color 0.22s ease;
+}
+
+.app-shell *,
+.app-shell *::before,
+.app-shell *::after {
+box-sizing: border-box;
+}
+
+/* ============================================================================
+Frosted Glass Sidebar
+============================================================================ */
+.app-sidebar {
+width: 280px;
+flex-shrink: 0;
+display: flex;
+flex-direction: column;
+padding: 1.25rem 0.9rem;
+background-color: rgba(31, 14, 62, 0.94);
+backdrop-filter: blur(22px);
+-webkit-backdrop-filter: blur(22px);
+border-right: 1px solid rgba(138, 78, 196, 0.45);
+z-index: 40;
+}
+
+.sidebar-brand-row {
+display: flex;
+align-items: center;
+justify-content: space-between;
+padding: 0 0.45rem 1rem;
+}
+
+.window-dots {
+display: flex;
+align-items: center;
+gap: 0.42rem;
+}
+
+.dot {
+width: 11px;
+height: 11px;
+border-radius: 50%;
+}
+.dot-amethyst { background-color: var(--color-amethyst); }
+.dot-lilac { background-color: var(--color-lilac); }
+.dot-aqua { background-color: var(--color-aqua); }
+
+.brand-title {
+margin-left: 0.35rem;
+font-size: 0.74rem;
+font-weight: 800;
+letter-spacing: 0.08em;
+color: var(--color-lilac);
+}
+
+.course-badge {
+font-size: 0.68rem;
+font-weight: 800;
+padding: 0.2rem 0.55rem;
+border-radius: 6px;
+background-color: var(--color-aqua);
+color: var(--color-plum);
+}
+
+/* Search Input */
+.sidebar-search {
+display: flex;
+align-items: center;
+gap: 0.45rem;
+padding: 0.5rem 0.75rem;
+margin-bottom: 1.25rem;
+border-radius: 12px;
+background-color: var(--color-plum);
+border: 1px solid rgba(138, 78, 196, 0.45);
+}
+
+.sidebar-search:focus-within {
+border-color: var(--color-aqua);
+}
+
+.search-icon {
+font-size: 0.85rem;
+opacity: 0.85;
+}
+
+.sidebar-search input {
+width: 100%;
+border: none;
+outline: none;
+background: transparent;
+color: #ffffff;
+font-size: 0.85rem;
+}
+
+.sidebar-search input::placeholder {
+color: rgba(212, 153, 245, 0.65);
+}
+
+.clear-search-btn {
+border: none;
+background: transparent;
+color: var(--color-lilac);
+font-size: 1.1rem;
+cursor: pointer;
+line-height: 1;
+}
+
+/* Navigation Groups */
+.sidebar-scroll-area {
+flex: 1;
+overflow-y: auto;
+display: flex;
+flex-direction: column;
+gap: 1.4rem;
+}
+
+.nav-group-header {
+display: flex;
+align-items: center;
+justify-content: space-between;
+padding-right: 0.55rem;
+}
+
+.nav-group-label {
+margin: 0 0 0.45rem;
+padding: 0 0.6rem;
+font-size: 0.7rem;
+font-weight: 800;
+text-transform: uppercase;
+letter-spacing: 0.08em;
+color: rgba(212, 153, 245, 0.75);
+}
+
+.inline-add-list-btn {
+border: none;
+background: transparent;
+color: var(--color-aqua);
+font-size: 0.75rem;
+font-weight: 800;
+cursor: pointer;
+margin-bottom: 0.45rem;
+}
+
+.inline-add-list-btn:hover {
+text-decoration: underline;
+}
+
+.nav-links {
+display: flex;
+flex-direction: column;
+gap: 0.25rem;
+}
+
+.sidebar-nav-link {
+display: flex;
+align-items: center;
+justify-content: space-between;
+gap: 0.5rem;
+padding: 0.52rem 0.65rem;
+border-radius: 12px;
+text-decoration: none;
+color: #F3E8FF;
+font-size: 0.875rem;
+font-weight: 600;
+transition: all 0.16s ease;
+}
+
+.sidebar-nav-link:hover {
+background-color: rgba(91, 46, 145, 0.55);
+}
+
+.sidebar-nav-link.active {
+background-color: var(--color-aqua);
+color: var(--color-plum);
+font-weight: 700;
+box-shadow: 0 4px 14px rgba(118, 234, 230, 0.25);
+}
+
+.nav-link-left {
+display: flex;
+align-items: center;
+gap: 0.6rem;
+min-width: 0;
+}
+
+.nav-circle-icon {
+width: 26px;
+height: 26px;
+border-radius: 50%;
+display: inline-flex;
+align-items: center;
+justify-content: center;
+font-size: 0.8rem;
+flex-shrink: 0;
+color: #ffffff;
+}
+
+.nav-circle-icon.light-icon {
+color: var(--color-plum);
+}
+
+.nav-link-text {
+overflow: hidden;
+text-overflow: ellipsis;
+white-space: nowrap;
+}
+
+.nav-count-pill {
+font-size: 0.78rem;
+font-weight: 800;
+color: var(--color-lilac);
+}
+
+.sidebar-nav-link.active .nav-count-pill {
+color: var(--color-plum);
+}
+
+/* Sidebar Footer */
+.sidebar-footer {
+margin-top: 1rem;
+padding-top: 0.75rem;
+border-top: 1px solid rgba(138, 78, 196, 0.4);
+display: flex;
+align-items: center;
+justify-content: space-between;
+}
+
+.footer-action-btn,
+.footer-settings-link {
+display: inline-flex;
+align-items: center;
+gap: 0.35rem;
+padding: 0.45rem 0.7rem;
+border-radius: 10px;
+border: none;
+background: transparent;
+color: var(--color-lilac);
+text-decoration: none;
+font-size: 0.8rem;
+font-weight: 700;
+cursor: pointer;
+transition: background-color 0.15s ease;
+}
+
+.footer-action-btn:hover,
+.footer-settings-link:hover {
+background-color: rgba(91, 46, 145, 0.55);
+}
+
+.footer-settings-link.active {
+background-color: var(--color-aqua);
+color: var(--color-plum);
+}
+
+/* ============================================================================
+Main Column & Top Utility Header
+============================================================================ */
+.app-main-column {
+flex: 1;
+display: flex;
+flex-direction: column;
+min-width: 0;
+}
+
+.app-topbar {
+position: sticky;
+top: 0;
+z-index: 25;
+display: flex;
+align-items: center;
+justify-content: space-between;
+gap: 1rem;
+padding: 0.85rem 2rem;
+background-color: rgba(38, 18, 75, 0.86);
+backdrop-filter: blur(14px);
+-webkit-backdrop-filter: blur(14px);
+border-bottom: 1px solid rgba(138, 78, 196, 0.4);
+}
+
+.topbar-left,
+.topbar-right {
+display: flex;
+align-items: center;
+gap: 0.75rem;
+}
+
+.mobile-drawer-toggle {
+display: none;
+padding: 0.4rem 0.65rem;
+border-radius: 10px;
+border: 1px solid rgba(138, 78, 196, 0.5);
+background-color: rgba(53, 26, 104, 0.9);
+color: #ffffff;
+font-size: 1.15rem;
+cursor: pointer;
+}
+
+.topbar-breadcrumb {
+display: flex;
+align-items: center;
+gap: 0.45rem;
+font-size: 0.82rem;
+}
+
+.crumb-root {
+color: var(--color-lilac);
+text-decoration: none;
+font-weight: 600;
+}
+
+.crumb-sep {
+color: var(--color-amethyst);
+}
+
+.crumb-current {
+font-weight: 800;
+color: #ffffff;
+}
+
+.theme-switch-btn {
+padding: 0.45rem 0.85rem;
+border-radius: 9999px;
+border: 1px solid rgba(138, 78, 196, 0.55);
+background-color: rgba(53, 26, 104, 0.9);
+color: var(--color-aqua);
+font-size: 0.8rem;
+font-weight: 700;
+cursor: pointer;
+transition: background-color 0.15s ease;
+}
+
+.theme-switch-btn:hover {
+background-color: var(--color-violet);
+}
+
+.topbar-new-task-btn {
+padding: 0.48rem 1rem;
+border-radius: 9999px;
+border: none;
+background-color: var(--color-aqua);
+color: var(--color-plum);
+font-size: 0.82rem;
+font-weight: 800;
+cursor: pointer;
+box-shadow: 0 4px 14px rgba(118, 234, 230, 0.28);
+transition: transform 0.15s ease, filter 0.15s ease;
+}
+
+.topbar-new-task-btn:hover {
+filter: brightness(1.06);
+}
+
+.topbar-new-task-btn:active {
+transform: scale(0.96);
+}
+
+/* Routed View Content Container */
+.app-content-canvas {
+flex: 1;
+width: 100%;
+padding: 1.75rem 2rem 3rem;
+}
+
+.app-content-inner {
+max-width: 960px;
+width: 100%;
+margin: 0 auto;
+}
+
+/* ============================================================================
+Light Mode Theme Overrides (.light-mode)
+============================================================================ */
+.app-shell.light-mode {
+background-color: #F8F4FD;
+color: var(--color-plum);
+}
+
+.app-shell.light-mode .app-sidebar {
+background-color: rgba(239, 230, 250, 0.94);
+border-right-color: rgba(212, 153, 245, 0.7);
+}
+
+.app-shell.light-mode .brand-title,
+.app-shell.light-mode .nav-group-label,
+.app-shell.light-mode .nav-count-pill,
+.app-shell.light-mode .footer-action-btn,
+.app-shell.light-mode .footer-settings-link {
+color: var(--color-violet);
+}
+
+.app-shell.light-mode .inline-add-list-btn {
+color: var(--color-violet);
+}
+
+.app-shell.light-mode .sidebar-search {
+background-color: #ffffff;
+border-color: var(--color-lilac);
+}
+
+.app-shell.light-mode .sidebar-search input {
+color: var(--color-plum);
+}
+
+.app-shell.light-mode .sidebar-nav-link {
+color: var(--color-plum);
+}
+
+.app-shell.light-mode .sidebar-nav-link:hover {
+background-color: rgba(212, 153, 245, 0.35);
+}
+
+.app-shell.light-mode .app-topbar {
+background-color: rgba(248, 244, 253, 0.88);
+border-bottom-color: rgba(212, 153, 245, 0.65);
+}
+
+.app-shell.light-mode .crumb-root {
+color: var(--color-amethyst);
+}
+
+.app-shell.light-mode .crumb-current {
+color: var(--color-plum);
+}
+
+.app-shell.light-mode .theme-switch-btn,
+.app-shell.light-mode .mobile-drawer-toggle {
+background-color: #ffffff;
+border-color: var(--color-lilac);
+color: var(--color-violet);
+}
+
+/* ============================================================================
+Responsive Mobile Breakpoint
+============================================================================ */
+@media (max-width: 768px) {
+.sidebar-backdrop {
+position: fixed;
+inset: 0;
+background-color: rgba(20, 8, 44, 0.68);
+backdrop-filter: blur(4px);
+z-index: 35;
+}
+
+.app-sidebar {
+position: fixed;
+inset: 0 auto 0 0;
+transform: translateX(-100%);
+transition: transform 0.26s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.app-sidebar.open {
+transform: translateX(0);
+}
+
+.mobile-drawer-toggle {
+display: inline-flex;
+align-items: center;
+justify-content: center;
+}
+
+.app-topbar {
+padding: 0.75rem 1.15rem;
+}
+
+.app-content-canvas {
+padding: 1.25rem 1rem 2.5rem;
+}
+}
