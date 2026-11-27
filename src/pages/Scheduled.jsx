@@ -8,7 +8,7 @@ import {
 } from '../utilities/dateHelpers'
 import './Scheduled.css'
 
-export default function Scheduled({ searchTerm = '' }) {
+export default function Scheduled({ searchTerm = '', openTask }) {
   const { tasks = [], listStyles = {}, toggleComplete, toggleFlag } = useTaskContext()
 
   const query = searchTerm.trim().toLowerCase()
@@ -124,7 +124,10 @@ export default function Scheduled({ searchTerm = '' }) {
                         </button>
 
                         {/* Reminder Body */}
-                        <div className="scheduled-task-body">
+                        <div
+                          className="scheduled-task-body"
+                          onClick={() => typeof openTask === 'function' && openTask(task)}
+                        >
                           <div className="scheduled-title-line">
                             {!task.completed && task.priority === 'high' && (
                               <span className="scheduled-priority-pill">!!!</span>
@@ -169,20 +172,34 @@ export default function Scheduled({ searchTerm = '' }) {
                           </div>
                         </div>
 
-                        {/* Flag Action Button */}
-                        <button
-                          type="button"
-                          aria-label={
-                            task.flagged ? 'Unflag reminder' : 'Flag reminder'
-                          }
-                          title={task.flagged ? 'Remove Flag' : 'Flag Reminder'}
-                          className={`scheduled-flag-btn ${
-                            task.flagged ? 'flagged' : ''
-                          }`}
-                          onClick={() => toggleFlag(task.id)}
-                        >
-                          {task.flagged ? '⚑' : '⚐'}
-                        </button>
+                        {/* Row Action Buttons */}
+                        <div className="scheduled-row-actions">
+                          <button
+                            type="button"
+                            aria-label={
+                              task.flagged ? 'Unflag reminder' : 'Flag reminder'
+                            }
+                            title={task.flagged ? 'Remove Flag' : 'Flag Reminder'}
+                            className={`scheduled-flag-btn ${
+                              task.flagged ? 'flagged' : ''
+                            }`}
+                            onClick={() => toggleFlag(task.id)}
+                          >
+                            {task.flagged ? '⚑' : '⚐'}
+                          </button>
+
+                          {typeof openTask === 'function' && (
+                            <button
+                              type="button"
+                              aria-label={`Edit "${task.title}"`}
+                              title="Edit Reminder"
+                              className="scheduled-edit-btn"
+                              onClick={() => openTask(task)}
+                            >
+                              ✎
+                            </button>
+                          )}
+                        </div>
                       </li>
                     )
                   })}

@@ -3,7 +3,7 @@ import { useTaskContext } from '../context/TaskContext'
 import { isToday, isOverdue, getRelativeDate } from '../utilities/dateHelpers'
 import './Overview.css'
 
-export default function Overview({ searchTerm = '' }) {
+export default function Overview({ searchTerm = '', openTask }) {
   const { tasks = [], lists = [], listStyles = {}, toggleComplete, toggleFlag } = useTaskContext()
 
   const query = searchTerm.trim().toLowerCase()
@@ -220,7 +220,7 @@ export default function Overview({ searchTerm = '' }) {
                       {task.completed ? '✓' : ''}
                     </button>
 
-                    <div className="overview-task-body">
+                    <div className="overview-task-body" onClick={() => typeof openTask === 'function' && openTask(task)}>
                       <div className="overview-task-title-line">
                         {task.priority === 'high' && (
                           <span className="priority-pill">!!!</span>
@@ -251,16 +251,31 @@ export default function Overview({ searchTerm = '' }) {
                       </div>
                     </div>
 
-                    {typeof toggleFlag === 'function' && (
-                      <button
-                        type="button"
-                        aria-label={task.flagged ? 'Unflag reminder' : 'Flag reminder'}
-                        className={`overview-flag-btn ${task.flagged ? 'flagged' : ''}`}
-                        onClick={() => toggleFlag(task.id)}
-                      >
-                        {task.flagged ? '⚑' : '⚐'}
-                      </button>
-                    )}
+                    <div className="overview-row-actions">
+                      {typeof toggleFlag === 'function' && (
+                        <button
+                          type="button"
+                          aria-label={task.flagged ? 'Unflag reminder' : 'Flag reminder'}
+                          title={task.flagged ? 'Remove Flag' : 'Flag Reminder'}
+                          className={`overview-flag-btn ${task.flagged ? 'flagged' : ''}`}
+                          onClick={() => toggleFlag(task.id)}
+                        >
+                          {task.flagged ? '⚑' : '⚐'}
+                        </button>
+                      )}
+
+                      {typeof openTask === 'function' && (
+                        <button
+                          type="button"
+                          aria-label={`Edit "${task.title}"`}
+                          title="Edit Reminder"
+                          className="overview-edit-btn"
+                          onClick={() => openTask(task)}
+                        >
+                          ✎
+                        </button>
+                      )}
+                    </div>
                   </li>
                 )
               })}

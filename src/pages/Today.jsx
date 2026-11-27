@@ -2,7 +2,7 @@ import { useTaskContext } from '../context/TaskContext'
 import { isToday, isOverdue, getRelativeDate } from '../utilities/dateHelpers'
 import './Today.css'
 
-export default function Today({ searchTerm = '' }) {
+export default function Today({ searchTerm = '', openTask }) {
   const { tasks = [], listStyles = {}, toggleComplete, toggleFlag } = useTaskContext()
 
   const query = searchTerm.trim().toLowerCase()
@@ -50,7 +50,10 @@ export default function Today({ searchTerm = '' }) {
         </button>
 
         {/* Task Details */}
-        <div className="today-task-body">
+        <div
+          className="today-task-body"
+          onClick={() => typeof openTask === 'function' && openTask(task)}
+        >
           <div className="today-title-line">
             {!task.completed && task.priority === 'high' && (
               <span className="today-priority-pill">!!!</span>
@@ -83,16 +86,30 @@ export default function Today({ searchTerm = '' }) {
           </div>
         </div>
 
-        {/* Flag Button */}
-        <button
-          type="button"
-          aria-label={task.flagged ? 'Unflag reminder' : 'Flag reminder'}
-          title={task.flagged ? 'Remove Flag' : 'Flag Reminder'}
-          className={`today-flag-btn ${task.flagged ? 'flagged' : ''}`}
-          onClick={() => toggleFlag(task.id)}
-        >
-          {task.flagged ? '⚑' : '⚐'}
-        </button>
+        {/* Row Action Buttons */}
+        <div className="today-row-actions">
+          <button
+            type="button"
+            aria-label={task.flagged ? 'Unflag reminder' : 'Flag reminder'}
+            title={task.flagged ? 'Remove Flag' : 'Flag Reminder'}
+            className={`today-flag-btn ${task.flagged ? 'flagged' : ''}`}
+            onClick={() => toggleFlag(task.id)}
+          >
+            {task.flagged ? '⚑' : '⚐'}
+          </button>
+
+          {typeof openTask === 'function' && (
+            <button
+              type="button"
+              aria-label={`Edit "${task.title}"`}
+              title="Edit Reminder"
+              className="today-edit-btn"
+              onClick={() => openTask(task)}
+            >
+              ✎
+            </button>
+          )}
+        </div>
       </li>
     )
   }

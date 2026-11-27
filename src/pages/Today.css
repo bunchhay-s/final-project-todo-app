@@ -58,7 +58,7 @@ font-size: 0.88rem;
 color: var(--color-lilac);
 }
 
-/* Section Headers */
+/* Section Blocks */
 .today-section-block {
 display: flex;
 flex-direction: column;
@@ -74,7 +74,7 @@ padding: 0 0.25rem;
 
 .today-section-title {
 margin: 0;
-font-size: 0.85rem;
+font-size: 0.84rem;
 font-weight: 800;
 text-transform: uppercase;
 letter-spacing: 0.07em;
@@ -89,29 +89,28 @@ padding: 0.25rem 0.75rem;
 border-radius: 9999px;
 background-color: var(--color-violet);
 color: var(--color-aqua);
-font-size: 0.75rem;
+font-size: 0.74rem;
 font-weight: 800;
 text-transform: uppercase;
 letter-spacing: 0.06em;
 }
 
 .today-count-pill {
-font-size: 0.74rem;
-font-weight: 800;
 padding: 0.18rem 0.6rem;
 border-radius: 9999px;
-background-color: rgba(91, 46, 145, 0.75);
+font-size: 0.74rem;
+font-weight: 800;
+background-color: rgba(138, 78, 196, 0.35);
 color: var(--color-lilac);
-border: 1px solid rgba(138, 78, 196, 0.45);
 }
 
 .today-count-pill.alert {
-background-color: var(--color-aqua);
-color: var(--color-plum);
-border-color: var(--color-aqua);
+background-color: rgba(118, 234, 230, 0.18);
+color: var(--color-aqua);
+border: 1px solid rgba(118, 234, 230, 0.45);
 }
 
-/* Grouped Task Card */
+/* Elevated Task Cards */
 .today-card-panel {
 background-color: rgba(53, 26, 104, 0.92);
 border: 1px solid rgba(138, 78, 196, 0.45);
@@ -121,13 +120,15 @@ box-shadow: 0 10px 26px rgba(15, 6, 32, 0.35);
 }
 
 .today-card-panel.overdue-card {
-border-color: rgba(118, 234, 230, 0.6);
+border-color: rgba(118, 234, 230, 0.55);
 }
 
 .today-task-list {
 list-style: none;
 margin: 0;
 padding: 0;
+display: flex;
+flex-direction: column;
 }
 
 .today-task-row {
@@ -144,19 +145,19 @@ border-bottom: none;
 }
 
 .today-task-row:hover {
-background-color: rgba(91, 46, 145, 0.45);
+background-color: rgba(91, 46, 145, 0.48);
 }
 
-/* Circular Apple Checkbox */
+/* Circular Checkbox */
 .today-circle-check {
 width: 24px;
 height: 24px;
 margin-top: 2px;
 border-radius: 50%;
-border: 2px solid var(--check-accent, var(--color-aqua));
+border: 2px solid var(--check-accent, var(--color-amethyst));
 background: transparent;
 color: var(--color-plum);
-font-size: 0.8rem;
+font-size: 0.78rem;
 font-weight: 900;
 display: inline-flex;
 align-items: center;
@@ -168,34 +169,35 @@ transition: transform 0.14s ease, background-color 0.15s ease;
 
 .today-circle-check:hover {
 transform: scale(1.08);
-background-color: rgba(118, 234, 230, 0.18);
+background-color: rgba(118, 234, 230, 0.16);
 }
 
 .today-circle-check.checked {
-background-color: var(--color-aqua);
-border-color: var(--color-aqua);
+background-color: var(--check-accent, var(--color-aqua));
+border-color: var(--check-accent, var(--color-aqua));
 }
 
 /* Task Content */
 .today-task-body {
 flex: 1;
 min-width: 0;
+cursor: pointer;
 }
 
 .today-title-line {
 display: flex;
 align-items: center;
-gap: 0.4rem;
+gap: 0.45rem;
 flex-wrap: wrap;
 }
 
 .today-priority-pill {
 font-size: 0.72rem;
 font-weight: 800;
-color: var(--color-aqua);
-background-color: var(--color-plum);
 padding: 0.1rem 0.45rem;
 border-radius: 6px;
+background-color: var(--color-plum);
+color: var(--color-aqua);
 }
 
 .today-task-title {
@@ -207,13 +209,13 @@ line-height: 1.35;
 
 .today-task-row.completed .today-task-title {
 text-decoration: line-through;
-opacity: 0.55;
+opacity: 0.52;
 }
 
 .today-task-notes {
 margin: 0.25rem 0 0;
 font-size: 0.82rem;
-color: rgba(212, 153, 245, 0.82);
+color: rgba(212, 153, 245, 0.85);
 }
 
 .today-task-meta {
@@ -221,28 +223,27 @@ display: flex;
 align-items: center;
 gap: 0.75rem;
 margin-top: 0.45rem;
+font-size: 0.76rem;
+font-weight: 600;
 flex-wrap: wrap;
 }
 
 .today-due-chip {
-font-size: 0.76rem;
-font-weight: 700;
 color: var(--color-aqua);
 }
 
 .today-due-chip.overdue {
 background-color: var(--color-violet);
 color: var(--color-aqua);
-padding: 0.15rem 0.55rem;
+padding: 0.12rem 0.55rem;
 border-radius: 9999px;
+font-weight: 700;
 }
 
 .today-list-chip {
 display: inline-flex;
 align-items: center;
 gap: 0.35rem;
-font-size: 0.76rem;
-font-weight: 600;
 color: var(--color-lilac);
 }
 
@@ -252,14 +253,23 @@ height: 8px;
 border-radius: 50%;
 }
 
-/* Flag Toggle Button */
-.today-flag-btn {
+/* Row Action Buttons */
+.today-row-actions {
+display: flex;
+align-items: center;
+gap: 0.25rem;
+flex-shrink: 0;
+}
+
+/* Flag & Edit Toggle Buttons */
+.today-flag-btn,
+.today-edit-btn {
 width: 34px;
 height: 34px;
 border-radius: 50%;
 border: none;
 background: transparent;
-color: rgba(212, 153, 245, 0.65);
+color: rgba(212, 153, 245, 0.78);
 font-size: 1.05rem;
 display: inline-flex;
 align-items: center;
@@ -269,7 +279,8 @@ flex-shrink: 0;
 transition: background-color 0.15s ease, color 0.15s ease;
 }
 
-.today-flag-btn:hover {
+.today-flag-btn:hover,
+.today-edit-btn:hover {
 background-color: rgba(138, 78, 196, 0.28);
 color: var(--color-aqua);
 }
@@ -295,7 +306,7 @@ height: 3.1rem;
 border-radius: 50%;
 background-color: rgba(118, 234, 230, 0.16);
 border: 1px solid rgba(118, 234, 230, 0.45);
-font-size: 1.35rem;
+font-size: 1.3rem;
 display: flex;
 align-items: center;
 justify-content: center;
@@ -324,27 +335,16 @@ Light Mode Theme Overrides (.light-mode on parent wrapper)
 color: var(--color-amethyst);
 }
 
-.light-mode .today-heading {
+.light-mode .today-heading,
+.light-mode .today-section-title {
 color: var(--color-violet);
 }
 
 .light-mode .today-subtitle,
-.light-mode .today-section-title,
 .light-mode .today-task-notes,
 .light-mode .today-list-chip,
 .light-mode .today-empty-desc {
 color: var(--color-violet);
-}
-
-.light-mode .today-task-title,
-.light-mode .today-empty-title {
-color: var(--color-plum);
-}
-
-.light-mode .today-count-pill:not(.alert) {
-background-color: #EDE3FA;
-color: var(--color-violet);
-border-color: var(--color-lilac);
 }
 
 .light-mode .today-card-panel {
@@ -361,6 +361,16 @@ border-bottom-color: rgba(212, 153, 245, 0.45);
 background-color: #F8F4FD;
 }
 
-.light-mode .today-due-chip:not(.overdue) {
+.light-mode .today-task-title,
+.light-mode .today-empty-title {
+color: var(--color-plum);
+}
+
+.light-mode .today-due-chip {
 color: var(--color-violet);
+}
+
+.light-mode .today-flag-btn,
+.light-mode .today-edit-btn {
+color: var(--color-amethyst);
 }
