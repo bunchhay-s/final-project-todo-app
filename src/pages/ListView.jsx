@@ -1,5 +1,6 @@
 import { Navigate, useNavigate, useParams } from 'react-router-dom'
 import { TaskList } from './TaskComponents'
+import './ListView.css'
 
 export default function ListView({ tasks, lists, listStyles, openTask, blankTask, toggleComplete, toggleFlag, deleteTask, removeList }) {
   const { listName: encodedName } = useParams()
