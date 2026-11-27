@@ -6,6 +6,7 @@ import {
     isUpcoming,
     getRelativeDate,
  } from "../utilities/dateHelpers"
+ import './Scheduled.css'
 
 export default function Scheduled({ searchTerm = "" }) {
     const { tasks, toggleComplete, toggleFlag} = useTaskContext();

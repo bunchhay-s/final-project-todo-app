@@ -1,0 +1,344 @@
+/* ============================================================================
+Member 3 — Scheduled UI/UX & Custom 5-Color Palette Stylesheet
+Palette: #26124B | #5B2E91 | #8A4EC4 | #D499F5 | #76EAE6
+============================================================================ */
+
+.scheduled-view {
+--color-plum: #26124B;
+--color-violet: #5B2E91;
+--color-amethyst: #8A4EC4;
+--color-lilac: #D499F5;
+--color-aqua: #76EAE6;
+
+display: flex;
+flex-direction: column;
+gap: 1.65rem;
+width: 100%;
+animation: scheduledFadeIn 0.22s ease-out;
+}
+
+.scheduled-view *,
+.scheduled-view *::before,
+.scheduled-view *::after {
+box-sizing: border-box;
+}
+
+@keyframes scheduledFadeIn {
+from {
+opacity: 0;
+transform: translateY(6px);
+}
+to {
+opacity: 1;
+transform: translateY(0);
+}
+}
+
+/* Header */
+.scheduled-header .eyebrow {
+margin: 0 0 0.2rem;
+font-size: 0.74rem;
+font-weight: 800;
+text-transform: uppercase;
+letter-spacing: 0.08em;
+color: var(--color-aqua);
+}
+
+.scheduled-heading {
+margin: 0;
+font-size: 2rem;
+font-weight: 800;
+letter-spacing: -0.02em;
+color: #ffffff;
+}
+
+.scheduled-subtitle {
+margin: 0.25rem 0 0;
+font-size: 0.88rem;
+color: var(--color-lilac);
+}
+
+/* Sections Stack */
+.scheduled-sections {
+display: flex;
+flex-direction: column;
+gap: 1.35rem;
+}
+
+.scheduled-section-block {
+display: flex;
+flex-direction: column;
+gap: 0.6rem;
+}
+
+.scheduled-section-header {
+display: flex;
+align-items: center;
+justify-content: space-between;
+padding: 0 0.25rem;
+}
+
+.section-label-group {
+display: flex;
+align-items: center;
+gap: 0.45rem;
+}
+
+.section-emoji {
+font-size: 0.95rem;
+}
+
+.scheduled-section-title {
+margin: 0;
+font-size: 0.85rem;
+font-weight: 800;
+text-transform: uppercase;
+letter-spacing: 0.07em;
+color: var(--color-lilac);
+}
+
+.tone-aqua .scheduled-section-title {
+color: var(--color-aqua);
+}
+
+.tone-lilac .scheduled-section-title {
+color: var(--color-lilac);
+}
+
+.tone-amethyst .scheduled-section-title {
+color: #e4baff;
+}
+
+.scheduled-count-pill {
+font-size: 0.74rem;
+font-weight: 800;
+padding: 0.18rem 0.6rem;
+border-radius: 9999px;
+background-color: rgba(91, 46, 145, 0.75);
+color: var(--color-aqua);
+border: 1px solid rgba(138, 78, 196, 0.45);
+}
+
+/* Grouped Card Panel */
+.scheduled-card-panel {
+background-color: rgba(53, 26, 104, 0.92);
+border: 1px solid rgba(138, 78, 196, 0.45);
+border-radius: 18px;
+overflow: hidden;
+box-shadow: 0 10px 26px rgba(15, 6, 32, 0.35);
+}
+
+.tone-aqua .scheduled-card-panel {
+border-color: rgba(118, 234, 230, 0.55);
+}
+
+.scheduled-empty-row {
+margin: 0;
+padding: 1.05rem 1.2rem;
+font-size: 0.85rem;
+font-weight: 500;
+color: rgba(212, 153, 245, 0.65);
+}
+
+.scheduled-task-list {
+list-style: none;
+margin: 0;
+padding: 0;
+}
+
+.scheduled-task-row {
+display: flex;
+align-items: flex-start;
+gap: 0.85rem;
+padding: 0.95rem 1.15rem;
+border-bottom: 1px solid rgba(138, 78, 196, 0.35);
+transition: background-color 0.16s ease;
+}
+
+.scheduled-task-row:last-child {
+border-bottom: none;
+}
+
+.scheduled-task-row:hover {
+background-color: rgba(91, 46, 145, 0.45);
+}
+
+/* Circular Apple Checkbox */
+.scheduled-circle-check {
+width: 24px;
+height: 24px;
+margin-top: 2px;
+border-radius: 50%;
+border: 2px solid var(--check-accent, var(--color-aqua));
+background: transparent;
+color: var(--color-plum);
+font-size: 0.8rem;
+font-weight: 900;
+display: inline-flex;
+align-items: center;
+justify-content: center;
+flex-shrink: 0;
+cursor: pointer;
+transition: transform 0.14s ease, background-color 0.15s ease;
+}
+
+.scheduled-circle-check:hover {
+transform: scale(1.08);
+background-color: rgba(118, 234, 230, 0.18);
+}
+
+.scheduled-circle-check.checked {
+background-color: var(--color-aqua);
+border-color: var(--color-aqua);
+}
+
+/* Task Content */
+.scheduled-task-body {
+flex: 1;
+min-width: 0;
+}
+
+.scheduled-title-line {
+display: flex;
+align-items: center;
+gap: 0.4rem;
+flex-wrap: wrap;
+}
+
+.scheduled-priority-pill {
+font-size: 0.72rem;
+font-weight: 800;
+color: var(--color-aqua);
+background-color: var(--color-plum);
+padding: 0.1rem 0.45rem;
+border-radius: 6px;
+}
+
+.scheduled-task-title {
+font-size: 0.96rem;
+font-weight: 600;
+color: #ffffff;
+line-height: 1.35;
+}
+
+.scheduled-task-title.completed {
+text-decoration: line-through;
+opacity: 0.55;
+}
+
+.scheduled-task-notes {
+margin: 0.25rem 0 0;
+font-size: 0.82rem;
+color: rgba(212, 153, 245, 0.82);
+}
+
+.scheduled-task-meta {
+display: flex;
+align-items: center;
+gap: 0.75rem;
+margin-top: 0.45rem;
+flex-wrap: wrap;
+}
+
+.scheduled-due-chip {
+font-size: 0.76rem;
+font-weight: 700;
+color: var(--color-aqua);
+}
+
+.scheduled-due-chip.overdue {
+background-color: var(--color-violet);
+color: var(--color-aqua);
+padding: 0.15rem 0.55rem;
+border-radius: 9999px;
+}
+
+.scheduled-list-chip {
+display: inline-flex;
+align-items: center;
+gap: 0.35rem;
+font-size: 0.76rem;
+font-weight: 600;
+color: var(--color-lilac);
+}
+
+.scheduled-list-dot {
+width: 8px;
+height: 8px;
+border-radius: 50%;
+}
+
+/* Flag Toggle Button */
+.scheduled-flag-btn {
+width: 34px;
+height: 34px;
+border-radius: 50%;
+border: none;
+background: transparent;
+color: rgba(212, 153, 245, 0.65);
+font-size: 1.05rem;
+display: inline-flex;
+align-items: center;
+justify-content: center;
+cursor: pointer;
+flex-shrink: 0;
+transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.scheduled-flag-btn:hover {
+background-color: rgba(138, 78, 196, 0.28);
+color: var(--color-aqua);
+}
+
+.scheduled-flag-btn.flagged {
+color: var(--color-aqua);
+background-color: rgba(118, 234, 230, 0.16);
+}
+
+/* ============================================================================
+Light Mode Theme Overrides (.light-mode on parent wrapper)
+============================================================================ */
+.light-mode .scheduled-header .eyebrow,
+.light-mode .tone-amethyst .scheduled-section-title {
+color: var(--color-amethyst);
+}
+
+.light-mode .scheduled-heading,
+.light-mode .scheduled-task-title {
+color: var(--color-plum);
+}
+
+.light-mode .scheduled-subtitle,
+.light-mode .scheduled-section-title,
+.light-mode .scheduled-task-notes,
+.light-mode .scheduled-list-chip {
+color: var(--color-violet);
+}
+
+.light-mode .scheduled-count-pill {
+background-color: #EDE3FA;
+color: var(--color-violet);
+border-color: var(--color-lilac);
+}
+
+.light-mode .scheduled-card-panel {
+background-color: #ffffff;
+border-color: rgba(212, 153, 245, 0.7);
+box-shadow: 0 6px 20px rgba(91, 46, 145, 0.08);
+}
+
+.light-mode .scheduled-empty-row {
+color: var(--color-amethyst);
+}
+
+.light-mode .scheduled-task-row {
+border-bottom-color: rgba(212, 153, 245, 0.45);
+}
+
+.light-mode .scheduled-task-row:hover {
+background-color: #F8F4FD;
+}
+
+.light-mode .scheduled-due-chip {
+color: var(--color-violet);
+}
