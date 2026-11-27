@@ -1,1 +1,931 @@
-.app-shell{min-height:100vh;display:grid;grid-template-columns:268px minmax(0,1fr);background:#fff}.sidebar{padding:24px 18px;background:rgba(246,244,250,.96);border-right:1px solid #e7e1ee}.brand{display:flex;align-items:center;gap:10px;height:42px;padding:0 8px;color:#26124B;font-size:20px;font-weight:800}.brand-mark{width:34px;height:34px;display:grid;place-items:center;border-radius:10px;color:#26124B;background:#76EAE6}.search-box{height:40px;margin:14px 4px 18px;padding:0 11px;display:flex;align-items:center;gap:8px;color:#8a9099;border:1px solid #e2dde8;background:#fff;border-radius:10px}.search-box input{min-width:0;width:100%;border:0;outline:0;background:transparent}.main-nav,.list-nav{display:flex;flex-direction:column;gap:3px}.nav-row{min-height:44px;padding:7px 9px;display:grid;grid-template-columns:34px 1fr auto;align-items:center;gap:9px;color:#50555d;text-decoration:none;border-radius:9px;font-size:14px;font-weight:650}.nav-row:hover{background:#eee8f4}.nav-row.active{color:#26124B;background:#D499F5}.nav-row b{min-width:24px;text-align:right;color:#776b82;font-size:12px}.nav-icon{width:30px;height:30px;display:grid;place-items:center;border-radius:8px;color:#26124B}.nav-icon.aqua{background:#76EAE6}.nav-icon.violet{background:#8A4EC4;color:white}.nav-icon.plum{background:#26124B;color:white}.nav-icon.rose{background:#f4a5b0}.nav-icon.lilac{background:#D499F5}.sidebar-heading{height:42px;margin-top:16px;padding:0 9px;display:flex;align-items:center;justify-content:space-between;color:#8b8294;font-size:11px;font-weight:800;text-transform:uppercase}.sidebar-heading button{width:28px;height:28px;border:0;border-radius:7px;color:#5B2E91;background:transparent}.list-dot{width:30px;height:30px;display:grid;place-items:center;border-radius:50%;color:#fff;font-size:14px}.list-dot.inline{width:24px;height:24px;display:inline-grid;margin-right:7px;vertical-align:middle}.main-content{min-width:0;background:#fff}.view{max-width:980px;min-height:100vh;margin:0 auto;padding:38px 48px 100px}.view-header{min-height:92px;margin-bottom:24px;display:flex;align-items:flex-start;justify-content:space-between;gap:20px}.eyebrow{margin:0 0 4px;color:#948a9d;font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:.1em}.view-header h1{margin:0;color:#26124B;font-size:34px;line-height:1.15}.view-header p:last-child{margin:7px 0 0;color:#969ba3;font-size:13px}.add-button{height:38px;padding:0 13px;border:0;border-radius:9px;color:#fff;background:#5B2E91;font-size:13px;font-weight:700}.header-actions{display:flex;gap:8px}.delete-list{height:38px;padding:0 12px;border:1px solid #efb9bd;border-radius:9px;color:#c84d55;background:#fff;font-size:12px;font-weight:700}.segments{width:max-content;height:38px;margin:-7px 0 18px;padding:3px;display:flex;gap:2px;border-radius:9px;background:#f1edf5}.segments button{min-width:78px;padding:0 12px;border:0;border-radius:7px;color:#7e7487;background:transparent;font-size:12px;font-weight:700}.segments button.selected{color:#26124B;background:#fff;box-shadow:0 1px 5px rgba(38,18,75,.12)}.task-list{border:1px solid #ece7f0;border-radius:12px;overflow:hidden}.task-row{min-height:78px;display:grid;grid-template-columns:34px minmax(0,1fr) 46px 38px 38px 38px;align-items:center;border-bottom:1px solid #efedf2;background:#fff}.task-row:last-child{border-bottom:0}.task-row:hover{background:#faf8fc}.task-check{width:20px;height:20px;margin-left:13px;padding:0;border:1.5px solid #cbd0d6;border-radius:50%;color:#26124B;background:#fff}.task-row.completed .task-check{border-color:#76EAE6;background:#76EAE6}.task-main{min-width:0;height:100%;padding:12px 10px;display:flex;flex-direction:column;justify-content:center;align-items:flex-start;border:0;text-align:left;background:transparent}.task-main strong{max-width:100%;overflow:hidden;text-overflow:ellipsis;color:#252930;font-size:14px}.task-main>span{max-width:100%;margin-top:3px;overflow:hidden;text-overflow:ellipsis;color:#989da5;font-size:12px}.task-main small{margin-top:5px;display:flex;align-items:center;gap:5px;color:#777e87;font-size:11px}.task-main small em{margin-left:5px;font-style:normal;font-weight:700}.task-row.completed .task-main strong,.task-row.completed .task-main>span{text-decoration:line-through;opacity:.62}.priority{justify-self:center;font-weight:900}.priority.high{color:#d45b77}.priority.medium{color:#8A4EC4}.priority.low{color:#4aa9a6}.row-button{width:30px;height:30px;display:grid;place-items:center;padding:0;border:0;border-radius:7px;color:#a79dac;background:transparent}.row-button:hover{color:#5B2E91;background:#eee8f4}.row-button.flagged{color:#d45b77}.row-button.delete{color:#c77a7e}.empty-state{min-height:260px;display:flex;flex-direction:column;align-items:center;justify-content:center;color:#9da2aa}.empty-state>span{width:52px;height:52px;display:grid;place-items:center;border-radius:50%;background:#f1edf5}.empty-state h2{margin:12px 0 4px;color:#626871;font-size:17px}.empty-state p{margin:0;font-size:13px}.modal-backdrop{position:fixed;inset:0;z-index:20;display:grid;place-items:center;padding:20px;background:rgba(38,18,75,.38);backdrop-filter:blur(5px)}.modal{width:min(580px,100%);max-height:calc(100vh - 40px);overflow:auto;border-radius:16px;background:#fff;box-shadow:0 24px 70px rgba(38,18,75,.22)}.modal.small-modal{width:min(480px,100%)}.modal header{height:82px;padding:18px 22px;display:flex;align-items:flex-start;justify-content:space-between;border-bottom:1px solid #efedf2}.modal header h2{margin:0;color:#26124B;font-size:20px}.close-button{width:32px;height:32px;border:0;border-radius:50%;color:#868c95;background:#f2f3f5;font-size:22px}.modal form{padding:20px 22px 22px}.modal label{margin-bottom:14px;display:flex;flex-direction:column;gap:7px;color:#696f78;font-size:12px;font-weight:700}.modal input,.modal textarea,.modal select{width:100%;border:1px solid #e3e6ea;border-radius:8px;outline:none;color:#2d3239;background:#fff;font-size:14px}.modal input,.modal select{height:42px;padding:0 11px}.modal textarea{min-height:82px;resize:vertical;padding:10px 11px}.modal input:focus,.modal textarea:focus,.modal select:focus{border-color:#8A4EC4;box-shadow:0 0 0 3px rgba(138,78,196,.1)}.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}.check-label{height:42px;flex-direction:row!important;align-items:center}.check-label input{width:17px;height:17px;accent-color:#5B2E91}.modal fieldset{margin:0 0 16px;padding:0;border:0}.modal legend{margin-bottom:9px;color:#696f78;font-size:12px;font-weight:700}.swatches{display:flex;gap:9px}.swatches button{width:34px;height:34px;border:3px solid white;border-radius:50%;box-shadow:0 0 0 1px #e1e4e8}.swatches button.selected{box-shadow:0 0 0 2px #5B2E91}.icon-picker{display:grid;grid-template-columns:repeat(8,1fr);gap:6px}.icon-picker button{height:40px;border:1px solid #e7e9ed;border-radius:8px;background:#fff}.icon-picker button.selected{border-color:#8A4EC4;background:#f4eafa}.modal footer{margin-top:8px;display:flex;justify-content:flex-end;gap:8px}.cancel-button,.save-button{height:40px;padding:0 14px;border-radius:8px;font-size:12px;font-weight:750}.cancel-button{border:1px solid #e1e4e8;color:#686e77;background:#fff}.save-button{border:0;color:#26124B;background:#76EAE6}@media(max-width:760px){.app-shell{grid-template-columns:82px minmax(0,1fr)}.sidebar{padding:16px 8px}.brand{justify-content:center;padding:0}.brand>span:last-child,.search-box,.nav-row>span:nth-child(2),.nav-row b,.sidebar-heading span{display:none}.nav-row{grid-template-columns:34px;justify-content:center}.sidebar-heading{justify-content:center;padding:0}.list-nav .nav-row{grid-template-columns:30px}.view{padding:28px 18px 90px}.view-header h1{font-size:28px}.task-row{grid-template-columns:34px minmax(0,1fr) 38px 38px}.task-row .priority{display:none}.header-actions{flex-direction:column}.form-grid{grid-template-columns:1fr}.icon-picker{grid-template-columns:repeat(4,1fr)}}
+/* ============================================================================
+Member 3 — Unified Global Stylesheet (App.css)
+Preserves all existing team classes + adds styles for Overview, Today,
+Scheduled, and Settings in the Apple Reminders 5-Color Palette
+============================================================================ */
+
+/* --- 1. Existing Team Layout, Sidebar, TaskList & Modal Styles --- */
+.app-shell {
+min-height: 100vh;
+display: grid;
+grid-template-columns: 268px minmax(0, 1fr);
+background: #fff;
+}
+
+.sidebar {
+padding: 24px 18px;
+background: rgba(246, 244, 250, 0.96);
+border-right: 1px solid #e7e1ee;
+}
+
+.brand {
+display: flex;
+align-items: center;
+gap: 10px;
+height: 42px;
+padding: 0 8px;
+color: #26124B;
+font-size: 20px;
+font-weight: 800;
+}
+
+.brand-mark {
+width: 34px;
+height: 34px;
+display: grid;
+place-items: center;
+border-radius: 10px;
+color: #26124B;
+background: #76EAE6;
+}
+
+.search-box {
+height: 40px;
+margin: 14px 4px 18px;
+padding: 0 11px;
+display: flex;
+align-items: center;
+gap: 8px;
+color: #8a9099;
+border: 1px solid #e2dde8;
+background: #fff;
+border-radius: 10px;
+}
+
+.search-box:focus-within {
+border-color: #8A4EC4;
+box-shadow: 0 0 0 3px rgba(138, 78, 196, 0.12);
+}
+
+.search-box input {
+min-width: 0;
+width: 100%;
+border: 0;
+outline: 0;
+background: transparent;
+}
+
+.main-nav,
+.list-nav {
+display: flex;
+flex-direction: column;
+gap: 3px;
+}
+
+.nav-row {
+min-height: 44px;
+padding: 7px 9px;
+display: grid;
+grid-template-columns: 34px 1fr auto;
+align-items: center;
+gap: 9px;
+color: #50555d;
+text-decoration: none;
+border-radius: 9px;
+font-size: 14px;
+font-weight: 650;
+transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.nav-row:hover {
+background: #eee8f4;
+}
+
+.nav-row.active {
+color: #26124B;
+background: #D499F5;
+}
+
+.nav-row b {
+min-width: 24px;
+text-align: right;
+color: #776b82;
+font-size: 12px;
+}
+
+.nav-icon {
+width: 30px;
+height: 30px;
+display: grid;
+place-items: center;
+border-radius: 8px;
+color: #26124B;
+}
+
+.nav-icon.aqua {
+background: #76EAE6;
+}
+
+.nav-icon.violet {
+background: #8A4EC4;
+color: white;
+}
+
+.nav-icon.plum {
+background: #26124B;
+color: white;
+}
+
+.nav-icon.rose {
+background: #f4a5b0;
+}
+
+.nav-icon.lilac {
+background: #D499F5;
+}
+
+.sidebar-heading {
+height: 42px;
+margin-top: 16px;
+padding: 0 9px;
+display: flex;
+align-items: center;
+justify-content: space-between;
+color: #8b8294;
+font-size: 11px;
+font-weight: 800;
+text-transform: uppercase;
+}
+
+.sidebar-heading button {
+width: 28px;
+height: 28px;
+border: 0;
+border-radius: 7px;
+color: #5B2E91;
+background: transparent;
+cursor: pointer;
+}
+
+.sidebar-heading button:hover {
+background: #eee8f4;
+}
+
+.list-dot {
+width: 30px;
+height: 30px;
+display: grid;
+place-items: center;
+border-radius: 50%;
+color: #fff;
+font-size: 14px;
+}
+
+.list-dot.inline {
+width: 24px;
+height: 24px;
+display: inline-grid;
+margin-right: 7px;
+vertical-align: middle;
+}
+
+.main-content {
+min-width: 0;
+background: #fff;
+}
+
+.view {
+max-width: 980px;
+min-height: 100vh;
+margin: 0 auto;
+padding: 38px 48px 100px;
+}
+
+.view-header {
+min-height: 92px;
+margin-bottom: 24px;
+display: flex;
+align-items: flex-start;
+justify-content: space-between;
+gap: 20px;
+}
+
+.eyebrow {
+margin: 0 0 4px;
+color: #948a9d;
+font-size: 11px;
+font-weight: 800;
+text-transform: uppercase;
+letter-spacing: 0.1em;
+}
+
+.view-header h1 {
+margin: 0;
+color: #26124B;
+font-size: 34px;
+line-height: 1.15;
+}
+
+.view-header p:last-child {
+margin: 7px 0 0;
+color: #969ba3;
+font-size: 13px;
+}
+
+.add-button {
+height: 38px;
+padding: 0 13px;
+border: 0;
+border-radius: 9px;
+color: #fff;
+background: #5B2E91;
+font-size: 13px;
+font-weight: 700;
+cursor: pointer;
+}
+
+.add-button:hover {
+background: #482275;
+}
+
+.header-actions {
+display: flex;
+gap: 8px;
+}
+
+.delete-list {
+height: 38px;
+padding: 0 12px;
+border: 1px solid #efb9bd;
+border-radius: 9px;
+color: #c84d55;
+background: #fff;
+font-size: 12px;
+font-weight: 700;
+cursor: pointer;
+}
+
+.segments {
+width: max-content;
+height: 38px;
+margin: -7px 0 18px;
+padding: 3px;
+display: flex;
+gap: 2px;
+border-radius: 9px;
+background: #f1edf5;
+}
+
+.segments button {
+min-width: 78px;
+padding: 0 12px;
+border: 0;
+border-radius: 7px;
+color: #7e7487;
+background: transparent;
+font-size: 12px;
+font-weight: 700;
+cursor: pointer;
+}
+
+.segments button.selected {
+color: #26124B;
+background: #fff;
+box-shadow: 0 1px 5px rgba(38, 18, 75, 0.12);
+}
+
+.task-list {
+border: 1px solid #ece7f0;
+border-radius: 12px;
+overflow: hidden;
+}
+
+.task-row {
+min-height: 78px;
+display: grid;
+grid-template-columns: 34px minmax(0, 1fr) 46px 38px 38px 38px;
+align-items: center;
+border-bottom: 1px solid #efedf2;
+background: #fff;
+}
+
+.task-row:last-child {
+border-bottom: 0;
+}
+
+.task-row:hover {
+background: #faf8fc;
+}
+
+.task-check {
+width: 20px;
+height: 20px;
+margin-left: 13px;
+padding: 0;
+border: 1.5px solid #cbd0d6;
+border-radius: 50%;
+color: #26124B;
+background: #fff;
+cursor: pointer;
+}
+
+.task-row.completed .task-check {
+border-color: #76EAE6;
+background: #76EAE6;
+}
+
+.task-main {
+min-width: 0;
+height: 100%;
+padding: 12px 10px;
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: flex-start;
+border: 0;
+text-align: left;
+background: transparent;
+cursor: pointer;
+}
+
+.task-main strong {
+max-width: 100%;
+overflow: hidden;
+text-overflow: ellipsis;
+color: #252930;
+font-size: 14px;
+}
+
+.task-main > span {
+max-width: 100%;
+margin-top: 3px;
+overflow: hidden;
+text-overflow: ellipsis;
+color: #989da5;
+font-size: 12px;
+}
+
+.task-main small {
+margin-top: 5px;
+display: flex;
+align-items: center;
+gap: 5px;
+color: #777e87;
+font-size: 11px;
+}
+
+.task-main small em {
+margin-left: 5px;
+font-style: normal;
+font-weight: 700;
+}
+
+.task-row.completed .task-main strong,
+.task-row.completed .task-main > span {
+text-decoration: line-through;
+opacity: 0.62;
+}
+
+.priority {
+justify-self: center;
+font-weight: 900;
+}
+
+.priority.high {
+color: #d45b77;
+}
+
+.priority.medium {
+color: #8A4EC4;
+}
+
+.priority.low {
+color: #4aa9a6;
+}
+
+.row-button {
+width: 30px;
+height: 30px;
+display: grid;
+place-items: center;
+padding: 0;
+border: 0;
+border-radius: 7px;
+color: #a79dac;
+background: transparent;
+cursor: pointer;
+}
+
+.row-button:hover {
+color: #5B2E91;
+background: #eee8f4;
+}
+
+.row-button.flagged {
+color: #d45b77;
+}
+
+.row-button.delete {
+color: #c77a7e;
+}
+
+.empty-state {
+min-height: 260px;
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+color: #9da2aa;
+}
+
+.empty-state > span {
+width: 52px;
+height: 52px;
+display: grid;
+place-items: center;
+border-radius: 50%;
+background: #f1edf5;
+}
+
+.empty-state h2 {
+margin: 12px 0 4px;
+color: #626871;
+font-size: 17px;
+}
+
+.empty-state p {
+margin: 0;
+font-size: 13px;
+}
+
+/* --- 2. Modal Styles --- */
+.modal-backdrop {
+position: fixed;
+inset: 0;
+z-index: 20;
+display: grid;
+place-items: center;
+padding: 20px;
+background: rgba(38, 18, 75, 0.38);
+backdrop-filter: blur(5px);
+}
+
+.modal {
+width: min(580px, 100%);
+max-height: calc(100vh - 40px);
+overflow: auto;
+border-radius: 16px;
+background: #fff;
+box-shadow: 0 24px 70px rgba(38, 18, 75, 0.22);
+}
+
+.modal.small-modal {
+width: min(480px, 100%);
+}
+
+.modal header {
+height: 82px;
+padding: 18px 22px;
+display: flex;
+align-items: flex-start;
+justify-content: space-between;
+border-bottom: 1px solid #efedf2;
+}
+
+.modal header h2 {
+margin: 0;
+color: #26124B;
+font-size: 20px;
+}
+
+.close-button {
+width: 32px;
+height: 32px;
+border: 0;
+border-radius: 50%;
+color: #868c95;
+background: #f2f3f5;
+font-size: 22px;
+cursor: pointer;
+}
+
+.modal form {
+padding: 20px 22px 22px;
+}
+
+.modal label {
+margin-bottom: 14px;
+display: flex;
+flex-direction: column;
+gap: 7px;
+color: #696f78;
+font-size: 12px;
+font-weight: 700;
+}
+
+.modal input,
+.modal textarea,
+.modal select {
+width: 100%;
+border: 1px solid #e3e6ea;
+border-radius: 8px;
+outline: none;
+color: #2d3239;
+background: #fff;
+font-size: 14px;
+}
+
+.modal input,
+.modal select {
+height: 42px;
+padding: 0 11px;
+}
+
+.modal textarea {
+min-height: 82px;
+resize: vertical;
+padding: 10px 11px;
+}
+
+.modal input:focus,
+.modal textarea:focus,
+.modal select:focus {
+border-color: #8A4EC4;
+box-shadow: 0 0 0 3px rgba(138, 78, 196, 0.1);
+}
+
+.form-grid {
+display: grid;
+grid-template-columns: 1fr 1fr;
+gap: 12px;
+}
+
+.check-label {
+height: 42px;
+flex-direction: row !important;
+align-items: center;
+}
+
+.check-label input {
+width: 17px;
+height: 17px;
+accent-color: #5B2E91;
+}
+
+.modal fieldset {
+margin: 0 0 16px;
+padding: 0;
+border: 0;
+}
+
+.modal legend {
+margin-bottom: 9px;
+color: #696f78;
+font-size: 12px;
+font-weight: 700;
+}
+
+.swatches {
+display: flex;
+gap: 9px;
+}
+
+.swatches button {
+width: 34px;
+height: 34px;
+border: 3px solid white;
+border-radius: 50%;
+box-shadow: 0 0 0 1px #e1e4e8;
+cursor: pointer;
+}
+
+.swatches button.selected {
+box-shadow: 0 0 0 2px #5B2E91;
+}
+
+.icon-picker {
+display: grid;
+grid-template-columns: repeat(8, 1fr);
+gap: 6px;
+}
+
+.icon-picker button {
+height: 40px;
+border: 1px solid #e7e9ed;
+border-radius: 8px;
+background: #fff;
+cursor: pointer;
+}
+
+.icon-picker button.selected {
+border-color: #8A4EC4;
+background: #f4eafa;
+}
+
+.modal footer {
+margin-top: 8px;
+display: flex;
+justify-content: flex-end;
+gap: 8px;
+}
+
+.cancel-button,
+.save-button {
+height: 40px;
+padding: 0 14px;
+border-radius: 8px;
+font-size: 12px;
+font-weight: 750;
+cursor: pointer;
+}
+
+.cancel-button {
+border: 1px solid #e1e4e8;
+color: #686e77;
+background: #fff;
+}
+
+.save-button {
+border: 0;
+color: #26124B;
+background: #76EAE6;
+}
+
+/* ============================================================================
+3. Member 3 Additions: Unified Light-Mode Styles for Overview, Today,
+Scheduled, and Settings (Matches Existing Team Aesthetic!)
+============================================================================ */
+
+/* Overview Smart Cards Grid */
+.smart-grid {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+gap: 12px;
+margin-bottom: 28px;
+}
+
+.smart-card {
+padding: 14px 16px;
+border: 1px solid #ece7f0;
+border-radius: 14px;
+background: #faf8fc;
+text-decoration: none;
+display: flex;
+flex-direction: column;
+gap: 10px;
+transition: transform 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.smart-card:hover {
+transform: translateY(-2px);
+border-color: #D499F5;
+background: #fff;
+box-shadow: 0 6px 18px rgba(38, 18, 75, 0.06);
+}
+
+.smart-card-top {
+display: flex;
+align-items: center;
+justify-content: space-between;
+}
+
+.smart-card-count {
+font-size: 24px;
+font-weight: 800;
+color: #26124B;
+}
+
+.smart-card-label {
+font-size: 13px;
+font-weight: 700;
+color: #6e6478;
+}
+
+/* Section Blocks (Overview My Lists, Today Sections, Scheduled Timeline) */
+.section-block {
+margin-bottom: 26px;
+}
+
+.section-header-row {
+display: flex;
+align-items: center;
+justify-content: space-between;
+margin-bottom: 10px;
+}
+
+.section-heading {
+margin: 0;
+font-size: 13px;
+font-weight: 800;
+text-transform: uppercase;
+letter-spacing: 0.06em;
+color: #5B2E91;
+}
+
+.section-heading.overdue-heading {
+color: #c84d55;
+}
+
+.section-pill {
+padding: 2px 9px;
+border-radius: 999px;
+background: #f1edf5;
+color: #5B2E91;
+font-size: 11px;
+font-weight: 800;
+}
+
+.section-pill.overdue-pill {
+background: #fdebec;
+color: #c84d55;
+}
+
+/* My Lists Directory Card on Overview */
+.lists-directory {
+border: 1px solid #ece7f0;
+border-radius: 12px;
+overflow: hidden;
+background: #fff;
+}
+
+.directory-row {
+min-height: 54px;
+padding: 10px 14px;
+display: flex;
+align-items: center;
+justify-content: space-between;
+text-decoration: none;
+color: #26124B;
+font-size: 14px;
+font-weight: 650;
+border-bottom: 1px solid #efedf2;
+}
+
+.directory-row:last-child {
+border-bottom: 0;
+}
+
+.directory-row:hover {
+background: #faf8fc;
+}
+
+.directory-row-left {
+display: flex;
+align-items: center;
+gap: 11px;
+}
+
+.directory-row-right {
+display: flex;
+align-items: center;
+gap: 8px;
+color: #8b8294;
+font-size: 13px;
+font-weight: 700;
+}
+
+/* Inline Task Rows for Overview, Today, and Scheduled */
+.inline-task-row {
+min-height: 64px;
+padding: 10px 14px;
+display: flex;
+align-items: center;
+gap: 12px;
+border-bottom: 1px solid #efedf2;
+background: #fff;
+}
+
+.inline-task-row:last-child {
+border-bottom: 0;
+}
+
+.inline-task-row:hover {
+background: #faf8fc;
+}
+
+.inline-task-row .task-check {
+margin-left: 0;
+flex-shrink: 0;
+}
+
+.inline-task-info {
+flex: 1;
+min-width: 0;
+}
+
+.inline-task-title {
+font-size: 14px;
+font-weight: 650;
+color: #252930;
+}
+
+.inline-task-row.completed .inline-task-title {
+text-decoration: line-through;
+opacity: 0.6;
+}
+
+.inline-task-meta {
+margin-top: 3px;
+display: flex;
+align-items: center;
+gap: 8px;
+font-size: 11.5px;
+color: #777e87;
+}
+
+.overdue-badge {
+color: #c84d55;
+font-weight: 700;
+}
+
+/* Settings View Cards */
+.settings-card {
+border: 1px solid #ece7f0;
+border-radius: 12px;
+overflow: hidden;
+background: #fff;
+margin-bottom: 20px;
+}
+
+.settings-row {
+padding: 16px 18px;
+display: flex;
+align-items: center;
+justify-content: space-between;
+gap: 16px;
+border-bottom: 1px solid #efedf2;
+}
+
+.settings-row:last-child {
+border-bottom: 0;
+}
+
+.settings-row strong {
+display: block;
+color: #26124B;
+font-size: 14px;
+}
+
+.settings-row small {
+display: block;
+margin-top: 3px;
+color: #8b8294;
+font-size: 12px;
+}
+
+.palette-strip {
+display: flex;
+align-items: center;
+gap: 8px;
+}
+
+.palette-swatch {
+width: 26px;
+height: 26px;
+border-radius: 50%;
+border: 2px solid #fff;
+box-shadow: 0 0 0 1px #dcd6e4;
+}
+
+/* --- 4. Responsive Mobile Breakpoints --- */
+@media (max-width: 760px) {
+.app-shell {
+grid-template-columns: 82px minmax(0, 1fr);
+}
+.sidebar {
+padding: 16px 8px;
+}
+.brand {
+justify-content: center;
+padding: 0;
+}
+.brand > span:last-child,
+.search-box,
+.nav-row > span:nth-child(2),
+.nav-row b,
+.sidebar-heading span {
+display: none;
+}
+.nav-row {
+grid-template-columns: 34px;
+justify-content: center;
+}
+.sidebar-heading {
+justify-content: center;
+padding: 0;
+}
+.list-nav .nav-row {
+grid-template-columns: 30px;
+}
+.view {
+padding: 28px 18px 90px;
+}
+.view-header h1 {
+font-size: 28px;
+}
+.task-row {
+grid-template-columns: 34px minmax(0, 1fr) 38px 38px;
+}
+.task-row .priority {
+display: none;
+}
+.header-actions {
+flex-direction: column;
+}
+.form-grid {
+grid-template-columns: 1fr;
+}
+.icon-picker {
+grid-template-columns: repeat(4, 1fr);
+}
+}

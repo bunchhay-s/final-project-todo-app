@@ -1,0 +1,386 @@
+/* ============================================================================
+Member 3 — TaskModal UI/UX & Custom 5-Color Palette Stylesheet
+Palette: #26124B | #5B2E91 | #8A4EC4 | #D499F5 | #76EAE6
+============================================================================ */
+
+.tm-backdrop {
+--color-plum: #26124B;
+--color-violet: #5B2E91;
+--color-amethyst: #8A4EC4;
+--color-lilac: #D499F5;
+--color-aqua: #76EAE6;
+
+position: fixed;
+inset: 0;
+z-index: 60;
+display: flex;
+align-items: center;
+justify-content: center;
+padding: 1rem;
+background-color: rgba(20, 8, 44, 0.74);
+backdrop-filter: blur(8px);
+-webkit-backdrop-filter: blur(8px);
+animation: tmBackdropFade 0.18s ease-out;
+}
+
+.tm-backdrop *,
+.tm-backdrop *::before,
+.tm-backdrop *::after {
+box-sizing: border-box;
+}
+
+@keyframes tmBackdropFade {
+from { opacity: 0; }
+to { opacity: 1; }
+}
+
+/* Modal Container Sheet */
+.tm-sheet {
+width: 100%;
+max-width: 490px;
+max-height: 92vh;
+overflow-y: auto;
+background-color: var(--color-plum);
+color: #ffffff;
+border: 1px solid rgba(138, 78, 196, 0.55);
+border-radius: 24px;
+box-shadow: 0 24px 52px rgba(10, 4, 24, 0.58);
+animation: tmSheetPop 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes tmSheetPop {
+from {
+opacity: 0;
+transform: scale(0.95) translateY(8px);
+}
+to {
+opacity: 1;
+transform: scale(1) translateY(0);
+}
+}
+
+/* Header */
+.tm-header {
+display: flex;
+align-items: center;
+justify-content: space-between;
+padding: 1rem 1.35rem;
+background-color: rgba(53, 26, 104, 0.92);
+border-bottom: 1px solid rgba(138, 78, 196, 0.42);
+}
+
+.tm-header .eyebrow {
+margin: 0 0 0.15rem;
+font-size: 0.7rem;
+font-weight: 800;
+text-transform: uppercase;
+letter-spacing: 0.08em;
+color: var(--color-aqua);
+}
+
+.tm-header h2 {
+margin: 0;
+font-size: 1.12rem;
+font-weight: 700;
+}
+
+.tm-close-btn {
+width: 32px;
+height: 32px;
+border-radius: 50%;
+border: none;
+background-color: rgba(138, 78, 196, 0.25);
+color: var(--color-lilac);
+font-size: 1.3rem;
+line-height: 1;
+display: inline-flex;
+align-items: center;
+justify-content: center;
+cursor: pointer;
+transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.tm-close-btn:hover {
+background-color: rgba(118, 234, 230, 0.2);
+color: var(--color-aqua);
+}
+
+/* Form & Grouped Cards */
+.tm-form {
+padding: 1.25rem 1.35rem;
+display: flex;
+flex-direction: column;
+gap: 1rem;
+}
+
+.tm-card-group {
+background-color: rgba(53, 26, 104, 0.85);
+border: 1px solid rgba(138, 78, 196, 0.42);
+border-radius: 16px;
+overflow: hidden;
+}
+
+.tm-divider-top {
+border-top: 1px solid rgba(138, 78, 196, 0.35);
+}
+
+.tm-input-block {
+display: flex;
+flex-direction: column;
+gap: 0.3rem;
+padding: 0.85rem 1rem;
+}
+
+.tm-field-label {
+font-size: 0.72rem;
+font-weight: 800;
+text-transform: uppercase;
+letter-spacing: 0.06em;
+color: var(--color-lilac);
+}
+
+.tm-text-input,
+.tm-textarea {
+width: 100%;
+border: none;
+outline: none;
+background: transparent;
+color: #ffffff;
+font-family: inherit;
+font-size: 0.95rem;
+font-weight: 600;
+}
+
+.tm-textarea {
+font-size: 0.86rem;
+font-weight: 500;
+resize: vertical;
+}
+
+.tm-text-input::placeholder,
+.tm-textarea::placeholder {
+color: rgba(212, 153, 245, 0.5);
+}
+
+/* Date & Time 2-Column Row */
+.tm-two-col {
+display: grid;
+grid-template-columns: 1fr;
+}
+
+@media (min-width: 480px) {
+.tm-two-col {
+grid-template-columns: 1fr 1fr;
+}
+.tm-two-col .tm-col-field:last-child {
+border-left: 1px solid rgba(138, 78, 196, 0.35);
+}
+}
+
+.tm-col-field {
+display: flex;
+flex-direction: column;
+gap: 0.4rem;
+padding: 0.85rem 1rem;
+}
+
+.tm-control-input,
+.tm-select-input {
+padding: 0.48rem 0.7rem;
+border-radius: 10px;
+border: 1px solid rgba(138, 78, 196, 0.55);
+background-color: var(--color-plum);
+color: #ffffff;
+font-family: inherit;
+font-size: 0.84rem;
+font-weight: 600;
+outline: none;
+}
+
+.tm-control-input:focus,
+.tm-select-input:focus {
+border-color: var(--color-aqua);
+}
+
+/* Inline Rows (Priority, List, Flag) */
+.tm-inline-row {
+display: flex;
+align-items: center;
+justify-content: space-between;
+gap: 0.75rem;
+padding: 0.85rem 1rem;
+flex-wrap: wrap;
+}
+
+.tm-row-label {
+font-size: 0.88rem;
+font-weight: 600;
+color: #ffffff;
+}
+
+.tm-priority-pills {
+display: inline-flex;
+gap: 0.35rem;
+}
+
+.tm-pill-btn {
+padding: 0.35rem 0.7rem;
+border-radius: 8px;
+border: 1px solid rgba(138, 78, 196, 0.5);
+background-color: var(--color-plum);
+color: var(--color-lilac);
+font-size: 0.76rem;
+font-weight: 800;
+cursor: pointer;
+transition: all 0.14s ease;
+}
+
+.tm-pill-btn:hover:not(.selected) {
+background-color: var(--color-violet);
+color: #ffffff;
+}
+
+.tm-pill-btn.selected {
+background-color: var(--color-aqua);
+border-color: var(--color-aqua);
+color: var(--color-plum);
+}
+
+/* Apple Toggle Switch */
+.tm-switch {
+width: 48px;
+height: 28px;
+padding: 2px;
+border-radius: 9999px;
+border: none;
+background-color: var(--color-plum);
+cursor: pointer;
+display: inline-flex;
+align-items: center;
+transition: background-color 0.2s ease;
+}
+
+.tm-switch.on {
+background-color: var(--color-aqua);
+}
+
+.tm-switch-thumb {
+width: 24px;
+height: 24px;
+border-radius: 50%;
+background-color: #ffffff;
+box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25);
+transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.tm-switch.on .tm-switch-thumb {
+transform: translateX(20px);
+background-color: var(--color-plum);
+}
+
+/* Footer Buttons */
+.tm-footer {
+display: flex;
+align-items: center;
+justify-content: flex-end;
+gap: 0.65rem;
+padding-top: 0.25rem;
+}
+
+.tm-cancel-btn {
+padding: 0.6rem 1.05rem;
+border-radius: 9999px;
+border: 1px solid rgba(138, 78, 196, 0.5);
+background: transparent;
+color: var(--color-lilac);
+font-size: 0.85rem;
+font-weight: 700;
+cursor: pointer;
+}
+
+.tm-cancel-btn:hover {
+background-color: rgba(91, 46, 145, 0.45);
+}
+
+.tm-save-btn {
+padding: 0.6rem 1.25rem;
+border-radius: 9999px;
+border: none;
+background-color: var(--color-aqua);
+color: var(--color-plum);
+font-size: 0.85rem;
+font-weight: 800;
+cursor: pointer;
+box-shadow: 0 4px 14px rgba(118, 234, 230, 0.3);
+transition: transform 0.14s ease, filter 0.14s ease;
+}
+
+.tm-save-btn:hover:not(:disabled) {
+filter: brightness(1.06);
+}
+
+.tm-save-btn:active:not(:disabled) {
+transform: scale(0.96);
+}
+
+.tm-save-btn:disabled {
+opacity: 0.4;
+cursor: not-allowed;
+}
+
+/* ============================================================================
+Light Mode Theme Overrides (.light-mode on parent wrapper)
+============================================================================ */
+.light-mode .tm-sheet {
+background-color: #F8F4FD;
+color: var(--color-plum);
+border-color: var(--color-lilac);
+}
+
+.light-mode .tm-header {
+background-color: #ffffff;
+border-bottom-color: rgba(212, 153, 245, 0.55);
+}
+
+.light-mode .tm-header .eyebrow,
+.light-mode .tm-field-label {
+color: var(--color-amethyst);
+}
+
+.light-mode .tm-card-group {
+background-color: #ffffff;
+border-color: rgba(212, 153, 245, 0.65);
+}
+
+.light-mode .tm-divider-top,
+.light-mode .tm-two-col .tm-col-field:last-child {
+border-color: rgba(212, 153, 245, 0.45);
+}
+
+.light-mode .tm-text-input,
+.light-mode .tm-textarea,
+.light-mode .tm-row-label {
+color: var(--color-plum);
+}
+
+.light-mode .tm-control-input,
+.light-mode .tm-select-input {
+background-color: #F8F4FD;
+color: var(--color-plum);
+border-color: var(--color-lilac);
+}
+
+.light-mode .tm-pill-btn:not(.selected) {
+background-color: #F3E8FF;
+color: var(--color-violet);
+border-color: var(--color-lilac);
+}
+
+.light-mode .tm-switch:not(.on) {
+background-color: #D499F5;
+}
+
+.light-mode .tm-cancel-btn {
+color: var(--color-violet);
+border-color: var(--color-lilac);
+}
