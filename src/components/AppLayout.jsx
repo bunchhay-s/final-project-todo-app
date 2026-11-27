@@ -35,6 +35,33 @@ export default function AppLayout({
     document.body.classList.toggle('light-mode', lightMode)
   }, [lightMode])
 
+  // Stay in sync when Settings toggles the theme
+  useEffect(() => {
+    const syncTheme = (event) => {
+      const nextIsLight =
+        typeof event?.detail?.lightMode === 'boolean'
+          ? event.detail.lightMode
+          : localStorage.getItem('reminders_theme_mode') === 'light'
+      setLightMode(nextIsLight)
+    }
+    window.addEventListener('reminders-theme-change', syncTheme)
+    window.addEventListener('storage', syncTheme)
+    return () => {
+      window.removeEventListener('reminders-theme-change', syncTheme)
+      window.removeEventListener('storage', syncTheme)
+    }
+  }, [])
+
+  const handleToggleTheme = () => {
+    setLightMode((prev) => {
+      const next = !prev
+      window.dispatchEvent(
+        new CustomEvent('reminders-theme-change', { detail: { lightMode: next } })
+      )
+      return next
+    })
+  }
+
   // Close mobile sidebar drawer automatically on route change
   useEffect(() => {
     setMobileMenuOpen(false)
@@ -285,7 +312,7 @@ export default function AppLayout({
             <button
               type="button"
               className="theme-switch-btn"
-              onClick={() => setLightMode((prev) => !prev)}
+              onClick={handleToggleTheme}
               aria-label="Toggle Light and Dark Mode"
               title="Switch between Midnight Plum Dark and Soft Lavender Light"
             >

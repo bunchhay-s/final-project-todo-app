@@ -39,6 +39,33 @@ export default function Settings() {
     document.body.classList.toggle('light-mode', lightMode)
   }, [lightMode])
 
+  // Stay in sync when the top bar theme button is clicked
+  useEffect(() => {
+    const syncTheme = (event) => {
+      const nextIsLight =
+        typeof event?.detail?.lightMode === 'boolean'
+          ? event.detail.lightMode
+          : localStorage.getItem('reminders_theme_mode') === 'light'
+      setLightMode(nextIsLight)
+    }
+    window.addEventListener('reminders-theme-change', syncTheme)
+    window.addEventListener('storage', syncTheme)
+    return () => {
+      window.removeEventListener('reminders-theme-change', syncTheme)
+      window.removeEventListener('storage', syncTheme)
+    }
+  }, [])
+
+  const handleToggleTheme = () => {
+    setLightMode((prev) => {
+      const next = !prev
+      window.dispatchEvent(
+        new CustomEvent('reminders-theme-change', { detail: { lightMode: next } })
+      )
+      return next
+    })
+  }
+
   const showStatus = (message) => {
     setStatusBanner(message)
     setTimeout(() => setStatusBanner(''), 2600)
@@ -173,7 +200,7 @@ export default function Settings() {
               type="button"
               role="switch"
               aria-checked={!lightMode}
-              onClick={() => setLightMode((prev) => !prev)}
+              onClick={handleToggleTheme}
               className={`apple-switch ${!lightMode ? 'on' : ''}`}
             >
               <span className="switch-thumb" />
