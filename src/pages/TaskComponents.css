@@ -22,15 +22,17 @@ box-sizing: border-box;
 /* ============================================================================
 ViewHeader Styling
 ============================================================================ */
-.tc-view-header {
+.view-header.tc-view-header {
 display: flex;
 flex-direction: column;
 gap: 0.9rem;
 width: 100%;
+min-height: auto;
+margin-bottom: 0;
 }
 
 @media (min-width: 640px) {
-.tc-view-header {
+.view-header.tc-view-header {
 flex-direction: row;
 align-items: flex-end;
 justify-content: space-between;
@@ -46,24 +48,25 @@ letter-spacing: 0.08em;
 color: var(--color-aqua);
 }
 
-.tc-header-text h1 {
+.view-header.tc-view-header h1 {
 margin: 0;
 font-size: 2rem;
 font-weight: 800;
 letter-spacing: -0.02em;
-color: #ffffff;
+color: #ffffff !important;
 }
 
-.tc-header-subtitle {
+.view-header.tc-view-header p.tc-header-subtitle {
 margin: 0.25rem 0 0;
 font-size: 0.88rem;
-color: var(--color-lilac);
+color: var(--color-lilac) !important;
 }
 
-.tc-add-btn {
+.add-button.tc-add-btn {
 display: inline-flex;
 align-items: center;
 gap: 0.4rem;
+height: auto;
 padding: 0.58rem 1.15rem;
 border: none;
 border-radius: 9999px;
@@ -78,54 +81,58 @@ transition: transform 0.14s ease, filter 0.14s ease;
 }
 
 @media (min-width: 640px) {
-.tc-add-btn {
+.add-button.tc-add-btn {
 align-self: auto;
 }
 }
 
-.tc-add-btn:hover {
+.add-button.tc-add-btn:hover {
 filter: brightness(1.06);
+background-color: var(--color-aqua);
 }
 
-.tc-add-btn:active {
+.add-button.tc-add-btn:active {
 transform: scale(0.96);
 }
 
 /* ============================================================================
-TaskList & Task Rows
+TaskList & Task Rows (Overrides App.css white .task-row in Dark Mode)
 ============================================================================ */
-.tc-task-list {
+.task-list.tc-task-list {
 display: flex;
 flex-direction: column;
 width: 100%;
-background-color: rgba(53, 26, 104, 0.92);
-border: 1px solid rgba(138, 78, 196, 0.45);
+background-color: rgba(53, 26, 104, 0.94) !important;
+border: 1px solid rgba(138, 78, 196, 0.48) !important;
 border-radius: 18px;
 overflow: hidden;
 box-shadow: 0 10px 26px rgba(15, 6, 32, 0.35);
 }
 
-.tc-task-row {
-display: flex;
+.task-row.tc-task-row {
+display: flex !important;
 align-items: flex-start;
 gap: 0.85rem;
+min-height: auto;
 padding: 0.95rem 1.15rem;
-border-bottom: 1px solid rgba(138, 78, 196, 0.35);
+background-color: transparent !important;
+border-bottom: 1px solid rgba(138, 78, 196, 0.35) !important;
 transition: background-color 0.16s ease;
 }
 
-.tc-task-row:last-child {
-border-bottom: none;
+.task-row.tc-task-row:last-child {
+border-bottom: none !important;
 }
 
-.tc-task-row:hover {
-background-color: rgba(91, 46, 145, 0.45);
+.task-row.tc-task-row:hover {
+background-color: rgba(91, 46, 145, 0.5) !important;
 }
 
 /* Circular Checkbox */
-.tc-task-check {
+.task-check.tc-task-check {
 width: 24px;
 height: 24px;
+margin-left: 0;
 margin-top: 2px;
 border-radius: 50%;
 border: 2px solid var(--color-amethyst);
@@ -141,20 +148,20 @@ cursor: pointer;
 transition: transform 0.14s ease, background-color 0.15s ease, border-color 0.15s ease;
 }
 
-.tc-task-check:hover {
+.task-check.tc-task-check:hover {
 transform: scale(1.08);
 border-color: var(--color-aqua);
 background-color: rgba(118, 234, 230, 0.16);
 }
 
-.tc-task-check.checked,
-.tc-task-row.completed .tc-task-check {
+.task-check.tc-task-check.checked,
+.task-row.tc-task-row.completed .task-check.tc-task-check {
 background-color: var(--color-aqua);
 border-color: var(--color-aqua);
 }
 
 /* Main Task Body Button */
-.tc-task-main {
+.task-main.tc-task-main {
 flex: 1;
 min-width: 0;
 display: flex;
@@ -175,38 +182,38 @@ gap: 0.45rem;
 flex-wrap: wrap;
 }
 
-.tc-priority {
+.priority.tc-priority {
 font-size: 0.72rem;
 font-weight: 800;
 padding: 0.1rem 0.45rem;
 border-radius: 6px;
 background-color: var(--color-plum);
-color: var(--color-aqua);
+color: var(--color-aqua) !important;
 }
 
-.tc-priority.low {
-color: var(--color-lilac);
+.priority.tc-priority.low {
+color: var(--color-lilac) !important;
 }
 
-.tc-task-title {
+.task-main.tc-task-main strong.tc-task-title {
 font-size: 0.96rem;
 font-weight: 600;
-color: #ffffff;
+color: #ffffff !important;
 line-height: 1.35;
 }
 
-.tc-task-row.completed .tc-task-title {
+.task-row.tc-task-row.completed .task-main.tc-task-main strong.tc-task-title {
 text-decoration: line-through;
 opacity: 0.55;
 }
 
-.tc-task-notes {
+.task-main.tc-task-main span.tc-task-notes {
 font-size: 0.82rem;
-color: rgba(212, 153, 245, 0.82);
+color: rgba(212, 153, 245, 0.85) !important;
 line-height: 1.4;
 }
 
-.tc-task-meta {
+.task-main.tc-task-main small.tc-task-meta {
 display: flex;
 align-items: center;
 gap: 0.75rem;
@@ -217,7 +224,7 @@ flex-wrap: wrap;
 }
 
 .tc-meta-date {
-color: var(--color-aqua);
+color: var(--color-aqua) !important;
 font-weight: 700;
 }
 
@@ -226,14 +233,14 @@ display: inline-flex;
 align-items: center;
 gap: 0.35rem;
 font-style: normal;
-color: var(--color-lilac);
+color: var(--color-lilac) !important;
 }
 
 .tc-list-dot {
 width: 7px;
 height: 7px;
 border-radius: 50%;
-background-color: var(--color-amethyst);
+background-color: var(--color-aqua);
 }
 
 /* Row Action Buttons */
@@ -244,13 +251,13 @@ gap: 0.25rem;
 flex-shrink: 0;
 }
 
-.tc-action-btn {
+.row-button.tc-action-btn {
 width: 32px;
 height: 32px;
 border-radius: 50%;
 border: none;
 background: transparent;
-color: rgba(212, 153, 245, 0.72);
+color: rgba(212, 153, 245, 0.8) !important;
 font-size: 0.98rem;
 display: inline-flex;
 align-items: center;
@@ -259,33 +266,33 @@ cursor: pointer;
 transition: background-color 0.15s ease, color 0.15s ease;
 }
 
-.tc-action-btn:hover {
-background-color: rgba(138, 78, 196, 0.3);
-color: var(--color-aqua);
+.row-button.tc-action-btn:hover {
+background-color: rgba(138, 78, 196, 0.35);
+color: var(--color-aqua) !important;
 }
 
-.tc-action-btn.flagged {
-color: var(--color-aqua);
-background-color: rgba(118, 234, 230, 0.16);
+.row-button.tc-action-btn.flagged {
+color: var(--color-aqua) !important;
+background-color: rgba(118, 234, 230, 0.18);
 }
 
-.tc-action-btn.delete:hover {
-background-color: rgba(212, 153, 245, 0.2);
-color: #ffffff;
+.row-button.tc-action-btn.delete:hover {
+background-color: rgba(212, 153, 245, 0.22);
+color: #ffffff !important;
 }
 
 /* ============================================================================
 Empty State Card
 ============================================================================ */
-.tc-empty-state {
+.empty-state.tc-empty-state {
 display: flex;
 flex-direction: column;
 align-items: center;
 justify-content: center;
 text-align: center;
 padding: 3rem 1.5rem;
-background-color: rgba(53, 26, 104, 0.9);
-border: 1px solid rgba(138, 78, 196, 0.42);
+background-color: rgba(53, 26, 104, 0.92);
+border: 1px solid rgba(138, 78, 196, 0.45);
 border-radius: 18px;
 }
 
@@ -304,17 +311,17 @@ justify-content: center;
 margin-bottom: 0.8rem;
 }
 
-.tc-empty-state h2 {
+.empty-state.tc-empty-state h2 {
 margin: 0 0 0.3rem;
 font-size: 1.05rem;
 font-weight: 700;
-color: #ffffff;
+color: #ffffff !important;
 }
 
-.tc-empty-state p {
+.empty-state.tc-empty-state p {
 margin: 0;
 font-size: 0.85rem;
-color: var(--color-lilac);
+color: var(--color-lilac) !important;
 }
 
 /* ============================================================================
@@ -324,34 +331,38 @@ Light Mode Theme Overrides (.light-mode on parent wrapper)
 color: var(--color-amethyst);
 }
 
-.light-mode .tc-header-text h1,
-.light-mode .tc-task-title,
-.light-mode .tc-empty-state h2 {
-color: var(--color-plum);
+.light-mode .view-header.tc-view-header h1,
+.light-mode .task-main.tc-task-main strong.tc-task-title,
+.light-mode .empty-state.tc-empty-state h2 {
+color: var(--color-plum) !important;
 }
 
-.light-mode .tc-header-subtitle,
-.light-mode .tc-task-notes,
+.light-mode .view-header.tc-view-header p.tc-header-subtitle,
+.light-mode .task-main.tc-task-main span.tc-task-notes,
 .light-mode .tc-meta-list,
-.light-mode .tc-empty-state p {
-color: var(--color-violet);
+.light-mode .empty-state.tc-empty-state p {
+color: var(--color-violet) !important;
 }
 
-.light-mode .tc-task-list,
-.light-mode .tc-empty-state {
-background-color: #ffffff;
-border-color: rgba(212, 153, 245, 0.7);
+.light-mode .task-list.tc-task-list,
+.light-mode .empty-state.tc-empty-state {
+background-color: #ffffff !important;
+border-color: rgba(212, 153, 245, 0.7) !important;
 box-shadow: 0 6px 20px rgba(91, 46, 145, 0.08);
 }
 
-.light-mode .tc-task-row {
-border-bottom-color: rgba(212, 153, 245, 0.45);
+.light-mode .task-row.tc-task-row {
+border-bottom-color: rgba(212, 153, 245, 0.45) !important;
 }
 
-.light-mode .tc-task-row:hover {
-background-color: #F8F4FD;
+.light-mode .task-row.tc-task-row:hover {
+background-color: #F8F4FD !important;
 }
 
 .light-mode .tc-meta-date {
-color: var(--color-violet);
+color: var(--color-violet) !important;
+}
+
+.light-mode .row-button.tc-action-btn {
+color: var(--color-amethyst) !important;
 }
