@@ -1,0 +1,366 @@
+/* ============================================================================
+Member 3 — Today UI/UX & Custom 5-Color Palette Stylesheet
+Palette: #26124B | #5B2E91 | #8A4EC4 | #D499F5 | #76EAE6
+============================================================================ */
+
+.today-view {
+--color-plum: #26124B;
+--color-violet: #5B2E91;
+--color-amethyst: #8A4EC4;
+--color-lilac: #D499F5;
+--color-aqua: #76EAE6;
+
+display: flex;
+flex-direction: column;
+gap: 1.65rem;
+width: 100%;
+animation: todayFadeIn 0.22s ease-out;
+}
+
+.today-view *,
+.today-view *::before,
+.today-view *::after {
+box-sizing: border-box;
+}
+
+@keyframes todayFadeIn {
+from {
+opacity: 0;
+transform: translateY(6px);
+}
+to {
+opacity: 1;
+transform: translateY(0);
+}
+}
+
+/* Header */
+.today-header .eyebrow {
+margin: 0 0 0.2rem;
+font-size: 0.74rem;
+font-weight: 800;
+text-transform: uppercase;
+letter-spacing: 0.08em;
+color: var(--color-aqua);
+}
+
+.today-heading {
+margin: 0;
+font-size: 2rem;
+font-weight: 800;
+letter-spacing: -0.02em;
+color: var(--color-aqua);
+}
+
+.today-subtitle {
+margin: 0.25rem 0 0;
+font-size: 0.88rem;
+color: var(--color-lilac);
+}
+
+/* Section Headers */
+.today-section-block {
+display: flex;
+flex-direction: column;
+gap: 0.65rem;
+}
+
+.today-section-header {
+display: flex;
+align-items: center;
+justify-content: space-between;
+padding: 0 0.25rem;
+}
+
+.today-section-title {
+margin: 0;
+font-size: 0.85rem;
+font-weight: 800;
+text-transform: uppercase;
+letter-spacing: 0.07em;
+color: var(--color-lilac);
+}
+
+.overdue-pill-badge {
+display: inline-flex;
+align-items: center;
+gap: 0.35rem;
+padding: 0.25rem 0.75rem;
+border-radius: 9999px;
+background-color: var(--color-violet);
+color: var(--color-aqua);
+font-size: 0.75rem;
+font-weight: 800;
+text-transform: uppercase;
+letter-spacing: 0.06em;
+}
+
+.today-count-pill {
+font-size: 0.74rem;
+font-weight: 800;
+padding: 0.18rem 0.6rem;
+border-radius: 9999px;
+background-color: rgba(91, 46, 145, 0.75);
+color: var(--color-lilac);
+border: 1px solid rgba(138, 78, 196, 0.45);
+}
+
+.today-count-pill.alert {
+background-color: var(--color-aqua);
+color: var(--color-plum);
+border-color: var(--color-aqua);
+}
+
+/* Grouped Task Card */
+.today-card-panel {
+background-color: rgba(53, 26, 104, 0.92);
+border: 1px solid rgba(138, 78, 196, 0.45);
+border-radius: 18px;
+overflow: hidden;
+box-shadow: 0 10px 26px rgba(15, 6, 32, 0.35);
+}
+
+.today-card-panel.overdue-card {
+border-color: rgba(118, 234, 230, 0.6);
+}
+
+.today-task-list {
+list-style: none;
+margin: 0;
+padding: 0;
+}
+
+.today-task-row {
+display: flex;
+align-items: flex-start;
+gap: 0.85rem;
+padding: 0.95rem 1.15rem;
+border-bottom: 1px solid rgba(138, 78, 196, 0.35);
+transition: background-color 0.16s ease;
+}
+
+.today-task-row:last-child {
+border-bottom: none;
+}
+
+.today-task-row:hover {
+background-color: rgba(91, 46, 145, 0.45);
+}
+
+/* Circular Apple Checkbox */
+.today-circle-check {
+width: 24px;
+height: 24px;
+margin-top: 2px;
+border-radius: 50%;
+border: 2px solid var(--check-accent, var(--color-aqua));
+background: transparent;
+color: var(--color-plum);
+font-size: 0.8rem;
+font-weight: 900;
+display: inline-flex;
+align-items: center;
+justify-content: center;
+flex-shrink: 0;
+cursor: pointer;
+transition: transform 0.14s ease, background-color 0.15s ease;
+}
+
+.today-circle-check:hover {
+transform: scale(1.08);
+background-color: rgba(118, 234, 230, 0.18);
+}
+
+.today-circle-check.checked {
+background-color: var(--color-aqua);
+border-color: var(--color-aqua);
+}
+
+/* Task Content */
+.today-task-body {
+flex: 1;
+min-width: 0;
+}
+
+.today-title-line {
+display: flex;
+align-items: center;
+gap: 0.4rem;
+flex-wrap: wrap;
+}
+
+.today-priority-pill {
+font-size: 0.72rem;
+font-weight: 800;
+color: var(--color-aqua);
+background-color: var(--color-plum);
+padding: 0.1rem 0.45rem;
+border-radius: 6px;
+}
+
+.today-task-title {
+font-size: 0.96rem;
+font-weight: 600;
+color: #ffffff;
+line-height: 1.35;
+}
+
+.today-task-row.completed .today-task-title {
+text-decoration: line-through;
+opacity: 0.55;
+}
+
+.today-task-notes {
+margin: 0.25rem 0 0;
+font-size: 0.82rem;
+color: rgba(212, 153, 245, 0.82);
+}
+
+.today-task-meta {
+display: flex;
+align-items: center;
+gap: 0.75rem;
+margin-top: 0.45rem;
+flex-wrap: wrap;
+}
+
+.today-due-chip {
+font-size: 0.76rem;
+font-weight: 700;
+color: var(--color-aqua);
+}
+
+.today-due-chip.overdue {
+background-color: var(--color-violet);
+color: var(--color-aqua);
+padding: 0.15rem 0.55rem;
+border-radius: 9999px;
+}
+
+.today-list-chip {
+display: inline-flex;
+align-items: center;
+gap: 0.35rem;
+font-size: 0.76rem;
+font-weight: 600;
+color: var(--color-lilac);
+}
+
+.today-list-dot {
+width: 8px;
+height: 8px;
+border-radius: 50%;
+}
+
+/* Flag Toggle Button */
+.today-flag-btn {
+width: 34px;
+height: 34px;
+border-radius: 50%;
+border: none;
+background: transparent;
+color: rgba(212, 153, 245, 0.65);
+font-size: 1.05rem;
+display: inline-flex;
+align-items: center;
+justify-content: center;
+cursor: pointer;
+flex-shrink: 0;
+transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.today-flag-btn:hover {
+background-color: rgba(138, 78, 196, 0.28);
+color: var(--color-aqua);
+}
+
+.today-flag-btn.flagged {
+color: var(--color-aqua);
+background-color: rgba(118, 234, 230, 0.16);
+}
+
+/* Empty State */
+.today-empty-state {
+display: flex;
+flex-direction: column;
+align-items: center;
+justify-content: center;
+text-align: center;
+padding: 3rem 1.5rem;
+}
+
+.today-empty-circle {
+width: 3.1rem;
+height: 3.1rem;
+border-radius: 50%;
+background-color: rgba(118, 234, 230, 0.16);
+border: 1px solid rgba(118, 234, 230, 0.45);
+font-size: 1.35rem;
+display: flex;
+align-items: center;
+justify-content: center;
+margin-bottom: 0.85rem;
+}
+
+.today-empty-title {
+margin: 0 0 0.35rem;
+font-size: 1.05rem;
+font-weight: 700;
+color: #ffffff;
+}
+
+.today-empty-desc {
+max-width: 360px;
+margin: 0;
+font-size: 0.85rem;
+line-height: 1.45;
+color: var(--color-lilac);
+}
+
+/* ============================================================================
+Light Mode Theme Overrides (.light-mode on parent wrapper)
+============================================================================ */
+.light-mode .today-header .eyebrow {
+color: var(--color-amethyst);
+}
+
+.light-mode .today-heading {
+color: var(--color-violet);
+}
+
+.light-mode .today-subtitle,
+.light-mode .today-section-title,
+.light-mode .today-task-notes,
+.light-mode .today-list-chip,
+.light-mode .today-empty-desc {
+color: var(--color-violet);
+}
+
+.light-mode .today-task-title,
+.light-mode .today-empty-title {
+color: var(--color-plum);
+}
+
+.light-mode .today-count-pill:not(.alert) {
+background-color: #EDE3FA;
+color: var(--color-violet);
+border-color: var(--color-lilac);
+}
+
+.light-mode .today-card-panel {
+background-color: #ffffff;
+border-color: rgba(212, 153, 245, 0.7);
+box-shadow: 0 6px 20px rgba(91, 46, 145, 0.08);
+}
+
+.light-mode .today-task-row {
+border-bottom-color: rgba(212, 153, 245, 0.45);
+}
+
+.light-mode .today-task-row:hover {
+background-color: #F8F4FD;
+}
+
+.light-mode .today-due-chip:not(.overdue) {
+color: var(--color-violet);
+}
