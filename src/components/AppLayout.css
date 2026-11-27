@@ -33,12 +33,18 @@ color: var(--color-plum);
 
 /* Master Two-Column Flex Shell */
 .app-shell {
-display: flex;
+display: flex !important;
 width: 100%;
 min-height: 100vh;
-background-color: var(--color-plum);
-color: #ffffff;
+background-color: var(--color-plum) !important;
+color: #ffffff !important;
 transition: background-color 0.22s ease, color 0.22s ease;
+}
+
+.app-main-column,
+.app-content-canvas {
+background-color: var(--color-plum) !important;
+color: #ffffff;
 }
 
 .app-shell *,
@@ -410,9 +416,11 @@ margin: 0 auto;
 /* ============================================================================
 Light Mode Theme Overrides (.light-mode)
 ============================================================================ */
-.app-shell.light-mode {
-background-color: #F8F4FD;
-color: var(--color-plum);
+.app-shell.light-mode,
+.app-shell.light-mode .app-main-column,
+.app-shell.light-mode .app-content-canvas {
+background-color: #F8F4FD !important;
+color: var(--color-plum) !important;
 }
 
 .app-shell.light-mode .app-sidebar {
