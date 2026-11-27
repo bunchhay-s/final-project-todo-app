@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import './ListModal.css'
 
 export default function ListModal({ onClose, onSave }) {
   const [name, setName] = useState('')

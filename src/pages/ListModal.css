@@ -1,0 +1,344 @@
+:root {
+--color-plum: #26124B;
+--color-violet: #5B2E91;
+--color-amethyst: #8A4EC4;
+--color-lilac: #D499F5;
+--color-aqua: #76EAE6;
+}
+
+/* Frosted Glass Backdrop */
+.list-modal-backdrop {
+position: fixed;
+inset: 0;
+z-index: 60;
+display: flex;
+align-items: center;
+justify-content: center;
+padding: 1rem;
+background-color: rgba(20, 8, 44, 0.74);
+backdrop-filter: blur(8px);
+-webkit-backdrop-filter: blur(8px);
+animation: backdropFadeIn 0.18s ease-out;
+}
+
+@keyframes backdropFadeIn {
+from { opacity: 0; }
+to { opacity: 1; }
+}
+
+/* Modal Container Sheet */
+.list-modal-sheet {
+width: 100%;
+max-width: 420px;
+background-color: var(--color-plum);
+color: #ffffff;
+border: 1px solid rgba(138, 78, 196, 0.55);
+border-radius: 24px;
+overflow: hidden;
+box-shadow: 0 24px 52px rgba(10, 4, 24, 0.55);
+animation: modalScaleUp 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes modalScaleUp {
+from {
+opacity: 0;
+transform: scale(0.95) translateY(8px);
+}
+to {
+opacity: 1;
+transform: scale(1) translateY(0);
+}
+}
+
+/* Header */
+.list-modal-header {
+display: flex;
+align-items: center;
+justify-content: space-between;
+padding: 1rem 1.35rem;
+background-color: rgba(53, 26, 104, 0.9);
+border-bottom: 1px solid rgba(138, 78, 196, 0.4);
+}
+
+.list-modal-header .eyebrow {
+font-size: 0.7rem;
+font-weight: 800;
+text-transform: uppercase;
+letter-spacing: 0.08em;
+color: var(--color-aqua);
+margin-bottom: 0.15rem;
+}
+
+.list-modal-header h2 {
+font-size: 1.1rem;
+font-weight: 700;
+margin: 0;
+}
+
+.list-modal-header .close-button {
+width: 32px;
+height: 32px;
+border-radius: 50%;
+border: none;
+background-color: rgba(138, 78, 196, 0.25);
+color: var(--color-lilac);
+font-size: 1.3rem;
+line-height: 1;
+display: flex;
+align-items: center;
+justify-content: center;
+cursor: pointer;
+transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.list-modal-header .close-button:hover {
+background-color: rgba(118, 234, 230, 0.2);
+color: var(--color-aqua);
+}
+
+/* Form Body */
+.list-modal-form {
+padding: 1.35rem;
+display: flex;
+flex-direction: column;
+gap: 1.1rem;
+}
+
+/* Live Apple Icon Preview Card */
+.list-preview-card {
+display: flex;
+flex-direction: column;
+align-items: center;
+gap: 0.6rem;
+padding: 1rem;
+border-radius: 18px;
+background-color: rgba(53, 26, 104, 0.75);
+border: 1px solid rgba(138, 78, 196, 0.35);
+}
+
+.list-preview-badge {
+width: 56px;
+height: 56px;
+border-radius: 50%;
+display: flex;
+align-items: center;
+justify-content: center;
+font-size: 1.65rem;
+border: 2px solid rgba(255, 255, 255, 0.25);
+box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.list-preview-name {
+font-size: 0.95rem;
+font-weight: 700;
+color: var(--color-lilac);
+margin: 0;
+}
+
+/* Input Field */
+.list-field-label {
+display: flex;
+flex-direction: column;
+gap: 0.4rem;
+font-size: 0.78rem;
+font-weight: 700;
+text-transform: uppercase;
+letter-spacing: 0.06em;
+color: var(--color-lilac);
+}
+
+.list-text-input {
+width: 100%;
+padding: 0.7rem 0.9rem;
+border-radius: 12px;
+border: 1px solid rgba(138, 78, 196, 0.55);
+background-color: rgba(53, 26, 104, 0.9);
+color: #ffffff;
+font-size: 0.95rem;
+font-weight: 600;
+outline: none;
+transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.list-text-input::placeholder {
+color: rgba(212, 153, 245, 0.5);
+font-weight: 500;
+}
+
+.list-text-input:focus {
+border-color: var(--color-aqua);
+box-shadow: 0 0 0 3px rgba(118, 234, 230, 0.18);
+}
+
+/* Fieldsets (Color Swatches & Icon Picker) */
+.list-fieldset {
+border: 1px solid rgba(138, 78, 196, 0.4);
+border-radius: 16px;
+padding: 0.85rem 1rem;
+background-color: rgba(53, 26, 104, 0.75);
+margin: 0;
+}
+
+.list-fieldset legend {
+padding: 0 0.4rem;
+font-size: 0.74rem;
+font-weight: 700;
+text-transform: uppercase;
+letter-spacing: 0.07em;
+color: var(--color-lilac);
+}
+
+.swatches {
+display: flex;
+align-items: center;
+justify-content: space-between;
+gap: 0.5rem;
+padding-top: 0.25rem;
+}
+
+.swatch-btn {
+width: 38px;
+height: 38px;
+border-radius: 50%;
+border: 2px solid rgba(255, 255, 255, 0.25);
+cursor: pointer;
+transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.swatch-btn:hover {
+transform: scale(1.08);
+}
+
+.swatch-btn.selected {
+transform: scale(1.14);
+border-color: #ffffff;
+box-shadow: 0 0 0 3px var(--color-aqua);
+}
+
+/* Icon Grid */
+.icon-picker {
+display: grid;
+grid-template-columns: repeat(4, 1fr);
+gap: 0.5rem;
+padding-top: 0.25rem;
+}
+
+.icon-btn {
+height: 42px;
+border-radius: 12px;
+border: 1px solid transparent;
+background-color: rgba(38, 18, 75, 0.65);
+font-size: 1.25rem;
+display: flex;
+align-items: center;
+justify-content: center;
+cursor: pointer;
+transition: all 0.15s ease;
+}
+
+.icon-btn:hover {
+background-color: rgba(91, 46, 145, 0.7);
+}
+
+.icon-btn.selected {
+background-color: rgba(118, 234, 230, 0.18);
+border-color: var(--color-aqua);
+transform: scale(1.05);
+}
+
+/* Footer Buttons */
+.list-modal-footer {
+display: flex;
+align-items: center;
+justify-content: flex-end;
+gap: 0.65rem;
+padding-top: 0.35rem;
+}
+
+.list-modal-footer .cancel-button {
+padding: 0.6rem 1.05rem;
+border-radius: 9999px;
+border: 1px solid rgba(138, 78, 196, 0.5);
+background: transparent;
+color: var(--color-lilac);
+font-size: 0.85rem;
+font-weight: 700;
+cursor: pointer;
+transition: background-color 0.15s ease;
+}
+
+.list-modal-footer .cancel-button:hover {
+background-color: rgba(91, 46, 145, 0.45);
+}
+
+.list-modal-footer .save-button {
+padding: 0.6rem 1.25rem;
+border-radius: 9999px;
+border: none;
+background-color: var(--color-aqua);
+color: var(--color-plum);
+font-size: 0.85rem;
+font-weight: 800;
+cursor: pointer;
+box-shadow: 0 4px 14px rgba(118, 234, 230, 0.3);
+transition: transform 0.15s ease, filter 0.15s ease;
+}
+
+.list-modal-footer .save-button:hover:not(:disabled) {
+filter: brightness(1.06);
+}
+
+.list-modal-footer .save-button:active:not(:disabled) {
+transform: scale(0.96);
+}
+
+.list-modal-footer .save-button:disabled {
+opacity: 0.4;
+cursor: not-allowed;
+}
+
+/* ============================================================================
+Light Mode Support (.light-mode on parent wrapper)
+============================================================================ */
+.light-mode .list-modal-sheet {
+background-color: #F8F4FD;
+color: var(--color-plum);
+border-color: var(--color-lilac);
+}
+
+.light-mode .list-modal-header {
+background-color: #ffffff;
+border-bottom-color: rgba(212, 153, 245, 0.5);
+}
+
+.light-mode .list-modal-header .eyebrow {
+color: var(--color-amethyst);
+}
+
+.light-mode .list-preview-card,
+.light-mode .list-fieldset {
+background-color: #ffffff;
+border-color: rgba(212, 153, 245, 0.65);
+}
+
+.light-mode .list-preview-name,
+.light-mode .list-field-label,
+.light-mode .list-fieldset legend {
+color: var(--color-violet);
+}
+
+.light-mode .list-text-input {
+background-color: #ffffff;
+color: var(--color-plum);
+border-color: var(--color-lilac);
+}
+
+.light-mode .icon-btn {
+background-color: #F3E8FF;
+}
+
+.light-mode .list-modal-footer .cancel-button {
+color: var(--color-violet);
+border-color: var(--color-lilac);
+}
